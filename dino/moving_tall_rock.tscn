@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ygp6"]
 size = Vector2(14, 24)
 
-[node name="moving_tall_rock" type="Area2D"]
+[node name="moving_tall_rock" type="Area2D" groups=["Obstacles"]]
 position = Vector2(0, -40)
 scale = Vector2(3, 3)
 script = ExtResource("1_crtyt")

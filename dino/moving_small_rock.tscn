@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_442x1"]
 size = Vector2(13, 14)
 
-[node name="moving_small_rock" type="Area2D"]
+[node name="moving_small_rock" type="Area2D" groups=["Obstacles"]]
 position = Vector2(0, -25)
 scale = Vector2(3, 3)
 script = ExtResource("1_acjwf")

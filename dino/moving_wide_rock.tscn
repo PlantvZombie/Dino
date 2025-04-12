@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://2gwqkm60u3nf" path="res://Wide_small_rock.png" id="1_a4odg"]
 [ext_resource type="Script" path="res://moveRock.gd" id="1_qhebe"]
 
-[node name="moving_wide_rock" type="Area2D"]
+[node name="moving_wide_rock" type="Area2D" groups=["Obstacles"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_qhebe")
 
