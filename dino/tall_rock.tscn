@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://igss6viv2ojq"]
+[gd_scene load_steps=3 format=3 uid="uid://qqi3cruqigl8"]
 
 [ext_resource type="Texture2D" uid="uid://s3lba3tuqxc3" path="res://Big_Rock.png" id="1_rsed6"]
 
@@ -6,6 +6,7 @@
 size = Vector2(14, 24)
 
 [node name="Tall Rock" type="Area2D" groups=["Obstacles"]]
+scale = Vector2(1.5, 1.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
