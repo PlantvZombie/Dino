@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=10 format=3 uid="uid://cgdisfxxirl33"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
-[ext_resource type="PackedScene" uid="uid://cv7mfla1o0wvo" path="res://small_rock.tscn" id="2_mjr5w"]
-[ext_resource type="PackedScene" uid="uid://igss6viv2ojq" path="res://tall_rock.tscn" id="3_wyofg"]
+[ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_mjr5w"]
+[ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_wyofg"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l668m"]
 
@@ -18,7 +18,15 @@ size = Vector2(100, 138)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ku7e5"]
 size = Vector2(5, 7)
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawnLoc", "endLoc")]
+script = ExtResource("1_8w6ik")
+spawnLoc = NodePath("Start")
+endLoc = NodePath("End")
+sRock = ExtResource("2_mjr5w")
+tRock = ExtResource("3_wyofg")
+
+[node name="RockTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="Static Character" type="CharacterBody2D" parent="."]
 position = Vector2(0, -24)
@@ -59,6 +67,10 @@ position = Vector2(503, -202)
 position = Vector2(0, -24)
 zoom = Vector2(2, 2)
 
-[node name="Spawner" type="Marker2D" parent="."]
+[node name="Start" type="Marker2D" parent="."]
 position = Vector2(500, 0)
-script = ExtResource("1_8w6ik")
+
+[node name="End" type="Marker2D" parent="."]
+position = Vector2(-500, 0)
+
+[connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
