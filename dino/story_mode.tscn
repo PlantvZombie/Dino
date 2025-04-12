@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpwq8o3bq2xrf"]
 
+[ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
 [ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
