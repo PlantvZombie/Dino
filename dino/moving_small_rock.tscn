@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dde6kbl2sdms"]
+[gd_scene load_steps=4 format=3 uid="uid://rdy7fgite28g"]
 
 [ext_resource type="Script" path="res://moveRock.gd" id="1_acjwf"]
 [ext_resource type="Texture2D" uid="uid://b8qof2qn6k13b" path="res://Small_Rock.png" id="1_y6rwn"]
