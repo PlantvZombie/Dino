@@ -7,20 +7,30 @@ const SPEED = 300
 @export var numObjArea1:int = 2
 @export var sRock:PackedScene
 @export var tRock:PackedScene
+@export var platform:PackedScene
 
 var rock
-
+var plat
+var countdown:bool = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Engine.time_scale = 2
+	plat = platform.instantiate()
+	plat.position = endLoc.position
+	add_child(plat)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	
+	if !countdown:
+		countdown = true
+		await get_tree().create_timer(4.785).timeout
+		plat = platform.instantiate()
+		plat.position = endLoc.position
+		add_child(plat)
+		countdown = false
 
 
 
@@ -42,3 +52,4 @@ func chooseRock(area:int):
 
 func _on_rock_timer_timeout() -> void:
 	chooseRock(1)
+	$RockTimer.wait_time = randf_range(1.5, 3.0)

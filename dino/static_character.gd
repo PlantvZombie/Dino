@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 			velocity.y *= 0.3
 	if Input.is_action_just_pressed("down"):
 		# anim.play(down)
-		velocity.y += 225
+		velocity.y += 190
 		if (is_on_floor()):
 			$Down.set_deferred("disabled", false)
 			$Standing.set_deferred("disabled", true)

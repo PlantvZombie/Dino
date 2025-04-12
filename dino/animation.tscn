@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0y0bfhyocwsi"]
+[gd_scene load_steps=10 format=3 uid="uid://6wq7p2b77fgp"]
 
 [ext_resource type="Texture2D" uid="uid://pa27p7n60n02" path="res://dino sprite.png" id="1_ard5p"]
 [ext_resource type="Script" path="res://animation.gd" id="2_jqmh7"]
@@ -69,7 +69,6 @@ animations = [{
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
-scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_pihfc")
 animation = &"run"
 frame_progress = 0.265157

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck0lk34ex55qe"]
+[gd_scene load_steps=4 format=3 uid="uid://bgty7vcs3n0i2"]
 
 [ext_resource type="Script" path="res://moveRock.gd" id="1_crtyt"]
 [ext_resource type="Texture2D" uid="uid://s3lba3tuqxc3" path="res://Big_Rock.png" id="1_qrf3f"]
@@ -7,14 +7,15 @@
 size = Vector2(14, 24)
 
 [node name="moving_tall_rock" type="Area2D"]
-scale = Vector2(1.5, 1.5)
+position = Vector2(0, -40)
+scale = Vector2(3, 3)
 script = ExtResource("1_crtyt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -11.3333)
 shape = SubResource("RectangleShape2D_2ygp6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -9)
+position = Vector2(2, -22.3333)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_qrf3f")
