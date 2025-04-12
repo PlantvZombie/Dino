@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5l4i2md6pu2c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l8838"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0k5a"]
+size = Vector2(14, 16)
+
+[node name="Small Rock" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(14, 16)
+texture = SubResource("PlaceholderTexture2D_l8838")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c0k5a")
