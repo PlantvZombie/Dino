@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv7mfla1o0wvo"]
+[gd_scene load_steps=3 format=3 uid="uid://5l4i2md6pu2c"]
 
 [ext_resource type="Texture2D" uid="uid://b8qof2qn6k13b" path="res://Small_Rock.png" id="1_0mx4p"]
 
@@ -6,6 +6,7 @@
 size = Vector2(13, 14)
 
 [node name="Small Rock" type="Area2D" groups=["Obstacles"]]
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)

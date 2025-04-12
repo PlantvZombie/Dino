@@ -15,7 +15,7 @@ func _physics_process(_delta: float) -> void:
 	if !death:
 		if not is_on_floor():
 			$"Dino Sprite".play("jump")
-			velocity.y = move_toward(velocity.y, 200, 5)
+			velocity.y = move_toward(velocity.y, 250, 5)
 		if is_on_floor():
 			velocity.y = 0
 			if !dodging:
