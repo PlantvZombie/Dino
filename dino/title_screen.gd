@@ -1,5 +1,8 @@
-extends Node2D
+extends Control
 
+
+func _ready() -> void:
+	$Panel.hide()
 
 func _process(delta):
 	if Input.is_action_pressed("esc"):
@@ -14,4 +17,8 @@ func _on_endless_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	pass # Replace with function body.
+	$Panel.show()
+
+
+func _on_close_pressed() -> void:
+	$Panel.hide()
