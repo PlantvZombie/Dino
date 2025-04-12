@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0k5a"]
 size = Vector2(14, 16)
 
-[node name="Small Rock" type="Area2D"]
+[node name="Small Rock" type="Area2D" groups=["Obstacles"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)

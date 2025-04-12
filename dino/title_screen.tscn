@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://cfu7m6oxy4c80"]
+[gd_scene load_steps=2 format=3 uid="uid://cfu7m6oxy4c80"]
+
+[ext_resource type="Script" path="res://title_screen.gd" id="1_gr7yc"]
 
 [node name="Title Screen" type="Node2D"]
+script = ExtResource("1_gr7yc")
+
+[node name="Story" type="Button" parent="."]
+offset_left = 510.0
+offset_top = 362.0
+offset_right = 639.0
+offset_bottom = 437.0
+theme_override_font_sizes/font_size = 48
+text = "Story"
+
+[node name="Endless" type="Button" parent="."]
+offset_left = 481.0
+offset_top = 488.0
+offset_right = 674.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 48
+text = "Endless"
+
+[node name="Close instruct" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "Esc - close"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 411.0
+offset_top = 158.0
+offset_right = 771.0
+offset_bottom = 246.0
+theme_override_font_sizes/font_size = 64
+text = "Dino Game!"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 1023.0
+offset_top = 22.0
+offset_right = 1130.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+
+[connection signal="pressed" from="Story" to="." method="_on_story_pressed"]
+[connection signal="pressed" from="Endless" to="." method="_on_endless_pressed"]
