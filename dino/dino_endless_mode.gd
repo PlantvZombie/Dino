@@ -8,7 +8,7 @@ const SPEED = 300
 @export var sRock:PackedScene
 @export var tRock:PackedScene
 
-var newRock
+var rock
 
 
 
@@ -23,9 +23,9 @@ func _process(delta: float) -> void:
 	
 
 
+
 func chooseRock(area:int):
 	randomize()
-	var rock
 	var item
 	### AREA ONE ###
 	if (area == 1):
@@ -33,13 +33,9 @@ func chooseRock(area:int):
 	
 	if (item == 1):
 		rock = sRock.instantiate()
-		print("is_calle2d")
 	if (item == 2):
 		rock = tRock.instantiate()
-		print("is_calle1d")
-	print("is_called")
 	rock.position = spawnLoc.position
-	rock.move_toward(endLoc.position, SPEED)
 	add_child(rock)
 	### AREA TWO ###
 

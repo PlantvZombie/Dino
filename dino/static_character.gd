@@ -29,3 +29,8 @@ func _input(event: InputEvent) -> void:
 		$Down.set_deferred("disabled", true)
 		$Standing.set_deferred("disabled", false)
 		print("down-release")
+
+
+func _on_hitbox_detection_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Obstacles"):
+		get_tree().reload_current_scene()

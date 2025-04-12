@@ -1,5 +1,8 @@
 extends Node
 
+
+var speed = -300
+
 var RunSpeed:int
 
 

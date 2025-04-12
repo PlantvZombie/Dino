@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://rdy7fgite28g"]
+
+[ext_resource type="Script" path="res://moveRock.gd" id="1_acjwf"]
+[ext_resource type="Texture2D" uid="uid://b8qof2qn6k13b" path="res://Small_Rock.png" id="1_y6rwn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_442x1"]
+size = Vector2(13, 14)
+
+[node name="moving_small_rock" type="Area2D"]
+script = ExtResource("1_acjwf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_y6rwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_442x1")
