@@ -9,6 +9,11 @@ const SPEED = 300
 @export var tRock:PackedScene
 @export var wRock:PackedScene
 @export var waRock:PackedScene
+@export_category("Area Two")
+@export var numObjArea2:int = 2
+@export var stalacT:PackedScene
+@export var stalacM:PackedScene
+@export_category("Platforms")
 @export var platform:PackedScene
 @export var cavePlatform:PackedScene
 var currArea = 1
@@ -16,7 +21,7 @@ var rock
 var plat
 var countdown:bool = false
 var timer = 0.0
-var score = 0
+var score = 499
 var level = 1
 
 @export var speed_factor := 2.0
@@ -61,9 +66,9 @@ func chooseRock(area:int):
 	else:
 		item = randi_range(1, 2)
 		if (item == 1):
-			rock = sRock.instantiate()
+			rock = stalacT.instantiate()
 		if (item == 2):
-			rock = tRock.instantiate()
+			rock = stalacM.instantiate()
 	rock.position = spawnLoc.position
 	add_child(rock)
 	### AREA TWO ###

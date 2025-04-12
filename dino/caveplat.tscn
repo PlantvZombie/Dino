@@ -8,14 +8,14 @@
 script = ExtResource("1_hajdb")
 
 [node name="Platform" type="Sprite2D" parent="."]
-position = Vector2(-2, -353)
+position = Vector2(-2, -310)
 rotation = 3.14159
 scale = Vector2(1.43032, 0.837456)
 texture = ExtResource("1_mdudj")
 
 [node name="Platform2" type="Sprite2D" parent="."]
 z_index = -710
-position = Vector2(0, -11)
+position = Vector2(-3, -9)
 scale = Vector2(1.43032, 0.837456)
 texture = ExtResource("1_mdudj")
 

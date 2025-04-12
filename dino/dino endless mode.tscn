@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=19 format=3 uid="uid://djskmqnl71orc"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bqev2imhsvsp" path="res://moving_wide_rock.tscn" id="4_di6a4"]
 [ext_resource type="PackedScene" uid="uid://dv570ed6yliif" path="res://widealt_moving.tscn" id="5_fa4li"]
 [ext_resource type="PackedScene" uid="uid://6wq7p2b77fgp" path="res://animation.tscn" id="5_otrfl"]
+[ext_resource type="PackedScene" uid="uid://c8qy6hcodbyi7" path="res://stalactite.tscn" id="6_3bs6w"]
 [ext_resource type="PackedScene" uid="uid://1511l675euv6" path="res://plat.tscn" id="6_uwyk1"]
+[ext_resource type="PackedScene" uid="uid://ok004uef4747" path="res://stalagmite.tscn" id="7_e20tj"]
 [ext_resource type="PackedScene" uid="uid://d4h1w2r04o4r3" path="res://caveplat.tscn" id="7_yq3fq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixp5"]
@@ -41,6 +43,8 @@ sRock = ExtResource("2_8x7yb")
 tRock = ExtResource("3_d5n5b")
 wRock = ExtResource("4_di6a4")
 waRock = ExtResource("5_fa4li")
+stalacT = ExtResource("6_3bs6w")
+stalacM = ExtResource("7_e20tj")
 platform = ExtResource("6_uwyk1")
 cavePlatform = ExtResource("7_yq3fq")
 speed_factor = 1.0
@@ -83,28 +87,35 @@ animation = &"jump"
 frame_progress = 0.0
 
 [node name="platform" parent="." instance=ExtResource("6_uwyk1")]
-position = Vector2(-539, 88)
+position = Vector2(-539, 100)
 
 [node name="platform2" parent="." instance=ExtResource("6_uwyk1")]
-position = Vector2(180, 88)
+position = Vector2(180, 100)
 
 [node name="platform3" parent="." instance=ExtResource("6_uwyk1")]
-position = Vector2(899, 88)
+position = Vector2(900, 100)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -24)
 zoom = Vector2(3, 3)
 
 [node name="Start" type="Marker2D" parent="."]
-position = Vector2(901, 34)
+position = Vector2(900, 57)
 
 [node name="Plat" type="Marker2D" parent="."]
-position = Vector2(900, 88)
+position = Vector2(900, 100)
+
+[node name="Cave" type="Marker2D" parent="."]
+position = Vector2(900, 100)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 110)
+position = Vector2(1, 144)
+shape = SubResource("RectangleShape2D_oelhj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, -274)
 shape = SubResource("RectangleShape2D_oelhj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -131,10 +142,6 @@ size_flags_vertical = 6
 text = "
 Level: 1"
 label_settings = SubResource("LabelSettings_1t57j")
-
-[node name="Node2D" parent="." instance=ExtResource("7_yq3fq")]
-visible = false
-position = Vector2(899, 88)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
