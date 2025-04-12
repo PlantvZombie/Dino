@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 
+
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
+
 [ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
 
@@ -35,8 +37,6 @@ shape = SubResource("RectangleShape2D_8w4im")
 [node name="Dino Sprite" parent="Dino" instance=ExtResource("2_4v08e")]
 position = Vector2(-0.750003, 2.75)
 scale = Vector2(0.196875, 0.196875)
-animation = &"run"
-frame_progress = 0.0
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
 position = Vector2(100, 200)
