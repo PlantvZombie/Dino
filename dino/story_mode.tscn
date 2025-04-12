@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57sy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v08at"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4im"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwhxs"]
 
@@ -25,7 +25,9 @@ position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_t7n80")
 
-[node name="CollisionBox" type="CollisionShape2D" parent="Dino"]
+
+[node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
+
 shape = SubResource("RectangleShape2D_t57sy")
 
 [node name="Camera" type="Camera2D" parent="Dino"]
@@ -34,7 +36,8 @@ zoom = Vector2(2, 2)
 [node name="Hitbox Detection" type="Area2D" parent="Dino"]
 
 [node name="HitBox" type="CollisionShape2D" parent="Dino/Hitbox Detection"]
-shape = SubResource("RectangleShape2D_v08at")
+
+shape = SubResource("RectangleShape2D_8w4im")
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
 position = Vector2(100, 200)
