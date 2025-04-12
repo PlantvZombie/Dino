@@ -1,17 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpwq8o3bq2xrf"]
+[gd_scene load_steps=11 format=3 uid="uid://dpwq8o3bq2xrf"]
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
 [ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
+[ext_resource type="Texture2D" uid="uid://cn5g5l4xbsnsx" path="res://Platform.png" id="3_effst"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
+[ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
+[ext_resource type="Texture2D" uid="uid://teoycoc2rr88" path="res://Background.png" id="7_j1e08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57sy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4im"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwhxs"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_tg76y"]
+size = Vector2(19.98, 36.1)
 
 [node name="Story Mode" type="Node2D"]
 
@@ -38,16 +40,25 @@ frame = 1
 frame_progress = 0.0
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
-position = Vector2(1000, 200)
-scale = Vector2(100, 1)
+position = Vector2(250, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(-6.50003, 80.5)
+scale = Vector2(50, 10)
 shape = SubResource("RectangleShape2D_rwhxs")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Test Floor"]
-position = Vector2(-5.10365e-07, -1.90735e-06)
-scale = Vector2(20, 20)
-mesh = SubResource("BoxMesh_tg76y")
+[node name="Platform" type="Sprite2D" parent="Test Floor"]
+z_index = -2
+texture_filter = 1
+position = Vector2(-7.2, 11)
+texture = ExtResource("3_effst")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(1124, 122.375)
+scale = Vector2(7.825, 1.93441)
+texture = ExtResource("7_j1e08")
 
 [node name="Small Rock" parent="." instance=ExtResource("2_lr2x0")]
 position = Vector2(489, 177)
@@ -55,11 +66,23 @@ position = Vector2(489, 177)
 [node name="Small Rock2" parent="." instance=ExtResource("2_lr2x0")]
 position = Vector2(659, 177)
 
+[node name="Wide Rock" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(936, 175)
+
 [node name="Small Rock3" parent="." instance=ExtResource("2_lr2x0")]
-position = Vector2(770, 177)
+position = Vector2(1151, 177)
 
 [node name="Tall Rock" parent="." instance=ExtResource("3_u58p8")]
-position = Vector2(1173, 169)
+position = Vector2(1177, 163)
+
+[node name="Small Rock4" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(1327, 177)
+
+[node name="Tall Rock2" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(1638, 162)
+
+[node name="Tall Rock3" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(1669, 162)
 
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]

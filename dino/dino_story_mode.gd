@@ -22,7 +22,7 @@ func _physics_process(_delta: float) -> void:
 				$"Dino Sprite".play("run")
 		if Input.is_action_just_pressed("up") and is_on_floor():
 			$"Dino Sprite".play("jump")
-			velocity.y -= 200
+			velocity.y -= 175
 		velocity.x = 200
 		if Input.is_action_just_pressed("down") and is_on_floor() and !cooldown:
 			dodge.emit()
@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("up"):
 		if velocity.y < 0:
-			velocity.y *= 0.5
+			velocity.y *= 0.6
 
 func Dodge():
 	dodging = true
@@ -53,7 +53,7 @@ func Dodge():
 func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Obstacles"):
 		death = true
-		velocity.x = 0
+		velocity = Vector2(0, 0)
 		$"Dino Sprite".play("die")
 		await get_tree().create_timer(0.5).timeout   
 		get_tree().reload_current_scene()
