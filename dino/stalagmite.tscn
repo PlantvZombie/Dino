@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtvmpo5y0mbic"]
+
+[ext_resource type="Texture2D" uid="uid://j3gc3160s8r4" path="res://Stalagmite.png" id="1_i2lon"]
+
+[node name="Stalagmite" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." groups=["Obstacles"]]
+polygon = PackedVector2Array(9.33333, 8.66667, -8.66667, 8.66667, -0.666667, -14)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.33333)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_i2lon")
