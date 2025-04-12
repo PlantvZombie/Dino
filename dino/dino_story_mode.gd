@@ -4,23 +4,29 @@ signal dodge
 var death:bool = false
 var dodging:bool = false
 var cooldown:bool = false
+var DeathCounter:int = 0
 
 func _ready() -> void:
 	death = false
 	dodging = false
 	cooldown = false
 	$"Dino Sprite".play("jump")
+	DeathCounter = 0
 
 func _physics_process(_delta: float) -> void:
+	$"Camera/Death Counter".text = "Deaths: " + str(DeathCounter)
 	if !death:
 		if not is_on_floor():
+			$"Dino Sprite".set_speed(1)
 			$"Dino Sprite".play("jump")
 			velocity.y = move_toward(velocity.y, 250, 5)
 		if is_on_floor():
 			velocity.y = 0
 			if !dodging:
 				$"Dino Sprite".play("run")
-		if Input.is_action_just_pressed("up") and is_on_floor():
+				$"Dino Sprite".set_speed(2)
+		if Input.is_action_pressed("up") and is_on_floor():
+			$"Dino Sprite".set_speed(1)
 			$"Dino Sprite".play("jump")
 			velocity.y -= 175
 		velocity.x = 200
@@ -36,6 +42,7 @@ func _input(event: InputEvent) -> void:
 
 func Dodge():
 	dodging = true
+	$"Dino Sprite".set_speed(1)
 	$"Dino Sprite".play("dodje")
 	if $"Dino Sprite".frame == 0:
 		$"Hitbox Detection".position.y += 2.5
@@ -54,6 +61,8 @@ func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Obstacles"):
 		death = true
 		velocity = Vector2(0, 0)
+		$"Dino Sprite".set_speed(1)
 		$"Dino Sprite".play("die")
 		await get_tree().create_timer(0.5).timeout   
-		get_tree().reload_current_scene()
+		self. global_position = Vector2(100, 180)
+		DeathCounter += 1

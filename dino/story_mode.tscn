@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
 [ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
-[ext_resource type="Texture2D" uid="uid://cn5g5l4xbsnsx" path="res://Platform.png" id="3_effst"]
+[ext_resource type="Texture2D" uid="uid://dx73h3a0jeglk" path="res://Platform.png" id="3_effst"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
 [ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
 [ext_resource type="Texture2D" uid="uid://teoycoc2rr88" path="res://Background.png" id="7_j1e08"]
@@ -13,12 +13,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w4im"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwhxs"]
-size = Vector2(19.98, 36.1)
+size = Vector2(20, 37.1)
 
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(100, 100)
+position = Vector2(100, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
@@ -26,6 +26,16 @@ shape = SubResource("RectangleShape2D_t57sy")
 
 [node name="Camera" type="Camera2D" parent="Dino"]
 zoom = Vector2(2, 2)
+
+[node name="Death Counter" type="Label" parent="Dino/Camera"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 225.0
+offset_top = -160.0
+offset_right = 285.0
+offset_bottom = -137.0
+grow_horizontal = 0
 
 [node name="Hitbox Detection" type="Area2D" parent="Dino"]
 
@@ -40,11 +50,11 @@ frame = 1
 frame_progress = 0.0
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
-position = Vector2(250, 300)
+position = Vector2(4750, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test Floor"]
-position = Vector2(-6.50003, 80.5)
-scale = Vector2(50, 10)
+position = Vector2(-7.00049, 75.5)
+scale = Vector2(500, 10)
 shape = SubResource("RectangleShape2D_rwhxs")
 
 [node name="Platform" type="Sprite2D" parent="Test Floor"]
@@ -58,6 +68,27 @@ z_index = -3
 texture_filter = 1
 position = Vector2(1124, 122.375)
 scale = Vector2(7.825, 1.93441)
+texture = ExtResource("7_j1e08")
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(3941, 123)
+scale = Vector2(7.825, 1.934)
+texture = ExtResource("7_j1e08")
+
+[node name="Background3" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(6758, 123)
+scale = Vector2(7.825, 1.934)
+texture = ExtResource("7_j1e08")
+
+[node name="Background4" type="Sprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+position = Vector2(9575, 123)
+scale = Vector2(7.825, 1.934)
 texture = ExtResource("7_j1e08")
 
 [node name="Small Rock" parent="." instance=ExtResource("2_lr2x0")]
@@ -76,13 +107,34 @@ position = Vector2(1151, 177)
 position = Vector2(1177, 163)
 
 [node name="Small Rock4" parent="." instance=ExtResource("2_lr2x0")]
-position = Vector2(1327, 177)
+position = Vector2(1382, 178)
 
 [node name="Tall Rock2" parent="." instance=ExtResource("3_u58p8")]
 position = Vector2(1638, 162)
 
 [node name="Tall Rock3" parent="." instance=ExtResource("3_u58p8")]
 position = Vector2(1669, 162)
+
+[node name="Wide Rock2" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(1926, 175)
+
+[node name="Small Rock5" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(2007, 177)
+
+[node name="Wide Rock3" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(1971, 175)
+
+[node name="Tall Rock4" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(2326, 162)
+
+[node name="Small Rock6" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(2733, 177)
+
+[node name="Small Rock7" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(2872, 177)
+
+[node name="Small Rock8" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(3038, 177)
 
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
