@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cig6akynhq0re"]
+[gd_scene load_steps=10 format=3 uid="uid://b0y0bfhyocwsi"]
 
 [ext_resource type="Texture2D" uid="uid://pa27p7n60n02" path="res://dino sprite.png" id="1_ard5p"]
+[ext_resource type="Script" path="res://animation.gd" id="2_jqmh7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylen2"]
 atlas = ExtResource("1_ard5p")
@@ -71,3 +72,5 @@ animations = [{
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_pihfc")
 animation = &"run"
+frame_progress = 0.265157
+script = ExtResource("2_jqmh7")
