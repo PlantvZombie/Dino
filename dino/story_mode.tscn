@@ -38,8 +38,11 @@ shape = SubResource("RectangleShape2D_8w4im")
 position = Vector2(-0.750003, 2.75)
 scale = Vector2(0.196875, 0.196875)
 
+animation = &"dodje"
+frame = 1
+
 [node name="Test Floor" type="StaticBody2D" parent="."]
-position = Vector2(100, 200)
+position = Vector2(1000, 200)
 scale = Vector2(100, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Test Floor"]
@@ -51,9 +54,16 @@ scale = Vector2(20, 20)
 mesh = SubResource("BoxMesh_tg76y")
 
 [node name="Small Rock" parent="." instance=ExtResource("2_lr2x0")]
-position = Vector2(293, 182)
+position = Vector2(490, 182)
+
+[node name="Small Rock2" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(658, 182)
+
+[node name="Small Rock3" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(745, 182)
 
 [node name="Tall Rock" parent="." instance=ExtResource("3_u58p8")]
-position = Vector2(361, 176)
+position = Vector2(1171, 176)
 
+[connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
