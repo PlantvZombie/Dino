@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
 [ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
 [ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="2_ray3c"]
-[ext_resource type="Texture2D" uid="uid://dno2i7qq85j1d" path="res://Platform.png" id="3_effst"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
+[ext_resource type="Texture2D" uid="uid://burc4ik2b8dic" path="res://Platform Wide.png" id="4_gosyo"]
 [ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
 [ext_resource type="Texture2D" uid="uid://biq77mnxtv3tf" path="res://Background.png" id="7_j1e08"]
 [ext_resource type="Texture2D" path="res://Cave Floor.png" id="9_jbyy7"]
@@ -72,7 +72,7 @@ shape = SubResource("RectangleShape2D_rwhxs")
 z_index = -2
 texture_filter = 1
 position = Vector2(-7.2, 11)
-texture = ExtResource("3_effst")
+texture = ExtResource("4_gosyo")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -3
