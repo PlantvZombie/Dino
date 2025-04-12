@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpwq8o3bq2xrf"]
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
-[ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
-[ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
+[ext_resource type="PackedScene" path="res://small_rock.tscn" id="2_lr2x0"]
+[ext_resource type="PackedScene" path="res://tall_rock.tscn" id="3_u58p8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t7n80"]
 
@@ -25,7 +25,9 @@ position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_t7n80")
 
+
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
+
 shape = SubResource("RectangleShape2D_t57sy")
 
 [node name="Camera" type="Camera2D" parent="Dino"]
@@ -34,6 +36,7 @@ zoom = Vector2(2, 2)
 [node name="Hitbox Detection" type="Area2D" parent="Dino"]
 
 [node name="HitBox" type="CollisionShape2D" parent="Dino/Hitbox Detection"]
+
 shape = SubResource("RectangleShape2D_8w4im")
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
