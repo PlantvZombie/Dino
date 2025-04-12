@@ -7,16 +7,23 @@ const SPEED = 300
 @export var numObjArea1:int = 2
 @export var sRock:PackedScene
 @export var tRock:PackedScene
+@export var wRock:PackedScene
+@export var waRock:PackedScene
 @export var platform:PackedScene
 
+var currArea = 1
 var rock
 var plat
 var countdown:bool = false
+var timer = 0.0
+var score = 0
+var level = 1
 
+@export var speed_factor := 2.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Engine.time_scale = 2
+	$CanvasLayer/Label.text = "Score: %s" % score
 	plat = platform.instantiate()
 	plat.position = endLoc.position
 	add_child(plat)
@@ -24,18 +31,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !countdown:
-		countdown = true
-		await get_tree().create_timer(4.785).timeout
+	delta *= $/root/Global.speed_factor
+	timer += delta
+	if timer >= 4.785:
+		timer -= 4.785
 		plat = platform.instantiate()
 		plat.position = endLoc.position
 		add_child(plat)
-		countdown = false
+		#await get_tree().create_timer(4.785).timeout
 
 
 
 func chooseRock(area:int):
-	randomize()
 	var item
 	### AREA ONE ###
 	if (area == 1):
@@ -45,11 +52,32 @@ func chooseRock(area:int):
 		rock = sRock.instantiate()
 	if (item == 2):
 		rock = tRock.instantiate()
+	if (item == 3):
+		rock = wRock.instantiate()
+	if (item == 4):
+		rock = waRock.instantiate()
 	rock.position = spawnLoc.position
 	add_child(rock)
 	### AREA TWO ###
 
 
 func _on_rock_timer_timeout() -> void:
-	chooseRock(1)
-	$RockTimer.wait_time = randf_range(1.5, 3.0)
+	randomize()
+	chooseRock(currArea)
+	$RockTimer.wait_time = randf_range(1.0, 2.0)
+
+
+func _on_timer_timeout() -> void:
+	score += 1
+	if score < 4000:
+		$/root/Global.speed_factor += 0.001
+	elif score < 1000:
+		$/root/Global.speed_factor += 0.0015
+	else:
+		$/root/Global.speed_factor += 0.003
+	if score % 1000 == 0:
+		speed_factor -= 2.5
+		level += 1
+		currArea = level % 3
+	$CanvasLayer/Label.text = "Score: %s" % score
+	$CanvasLayer/Level.text = "\nLevel: %s" % level

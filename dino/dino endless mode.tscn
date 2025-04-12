@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=16 format=3 uid="uid://djskmqnl71orc"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
 [ext_resource type="PackedScene" uid="uid://dde6kbl2sdms" path="res://moving_small_rock.tscn" id="2_8x7yb"]
 [ext_resource type="PackedScene" uid="uid://bgty7vcs3n0i2" path="res://moving_tall_rock.tscn" id="3_d5n5b"]
+[ext_resource type="PackedScene" uid="uid://71hepiklf7tx" path="res://moving_wide_rock.tscn" id="4_di6a4"]
+[ext_resource type="PackedScene" uid="uid://ccsuqhg2r6aih" path="res://widealt_moving.tscn" id="5_fa4li"]
 [ext_resource type="PackedScene" uid="uid://6wq7p2b77fgp" path="res://animation.tscn" id="5_otrfl"]
 [ext_resource type="PackedScene" uid="uid://dnly1hlmnxrbo" path="res://plat.tscn" id="6_uwyk1"]
 
@@ -22,13 +24,27 @@ size = Vector2(26, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oelhj"]
 size = Vector2(722, 173)
 
+[sub_resource type="LabelSettings" id="LabelSettings_6x02j"]
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t57j"]
+font_size = 60
+
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawnLoc", "endLoc")]
 script = ExtResource("1_8w6ik")
 spawnLoc = NodePath("Start")
 endLoc = NodePath("Plat")
+numObjArea1 = 3
 sRock = ExtResource("2_8x7yb")
 tRock = ExtResource("3_d5n5b")
+wRock = ExtResource("4_di6a4")
+waRock = ExtResource("5_fa4li")
 platform = ExtResource("6_uwyk1")
+speed_factor = 1.7
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
 
 [node name="RockTimer" type="Timer" parent="."]
 wait_time = 1.5
@@ -87,4 +103,30 @@ position = Vector2(900, 88)
 position = Vector2(-4, 85.5)
 shape = SubResource("RectangleShape2D_oelhj")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 61.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_6x02j")
+
+[node name="Level" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+text = "
+Level: 1"
+label_settings = SubResource("LabelSettings_1t57j")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]

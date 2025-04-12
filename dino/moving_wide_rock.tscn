@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://71hepiklf7tx"]
+
+[ext_resource type="Texture2D" uid="uid://2gwqkm60u3nf" path="res://Wide_small_rock.png" id="1_a4odg"]
+[ext_resource type="Script" path="res://moveRock.gd" id="1_qhebe"]
+
+[node name="moving_wide_rock" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_qhebe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.333333, -10.6667)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_a4odg")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -6.66667)
+polygon = PackedVector2Array(9.72, 6.025, 9.475, -1.725, 0.41, -6.995, -10.805, 0.48, -11.085, 6.065)

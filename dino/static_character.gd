@@ -1,25 +1,23 @@
 extends CharacterBody2D
 
+var jump_force = -400
+var gravity = 1000
 
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y = move_toward(velocity.y, 200, 5)
-	if is_on_floor():
-		velocity.y = 0
+# Called every frame
+func _process(delta):
+	# Check for jump
 	if Input.is_action_just_pressed("up") and is_on_floor():
-		velocity.y -= 175
-
+		velocity.y = jump_force
+	velocity.y += gravity * delta
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("up"):
 		if velocity.y < 0:
-			velocity.y *= 0.3
+			velocity.y *= 0.6
 	if Input.is_action_just_pressed("down"):
 		# anim.play(down)
-		velocity.y += 190
+		velocity.y += 210
 		if (is_on_floor()):
 			$Down.set_deferred("disabled", false)
 			$Standing.set_deferred("disabled", true)
@@ -33,4 +31,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Obstacles"):
+		velocity = Vector2.ZERO
+		$"Dino Sprite".play("die")
+		await get_tree().create_timer(0.5).timeout   
 		get_tree().reload_current_scene()
