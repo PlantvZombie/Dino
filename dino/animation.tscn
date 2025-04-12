@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6wq7p2b77fgp"]
+[gd_scene load_steps=9 format=3 uid="uid://cig6akynhq0re"]
 
 [ext_resource type="Texture2D" uid="uid://pa27p7n60n02" path="res://dino sprite.png" id="1_ard5p"]
 [ext_resource type="Script" path="res://animation.gd" id="2_jqmh7"]
@@ -10,10 +10,6 @@ region = Rect2(320, 480, 160, 160)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y30m"]
 atlas = ExtResource("1_ard5p")
 region = Rect2(320, 320, 160, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s3vy3"]
-atlas = ExtResource("1_ard5p")
-region = Rect2(480, 320, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt5f8"]
 atlas = ExtResource("1_ard5p")
@@ -40,9 +36,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2y30m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s3vy3")
 }],
 "loop": false,
 "name": &"dodje",
@@ -70,6 +63,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_pihfc")
-animation = &"run"
-frame_progress = 0.265157
+animation = &"dodje"
 script = ExtResource("2_jqmh7")
