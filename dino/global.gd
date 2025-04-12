@@ -1,6 +1,7 @@
 extends Node
 
-var RunSpeed:int = 
+var speed = -300
+var RunSpeed:int
 
 
 func _ready() -> void:
