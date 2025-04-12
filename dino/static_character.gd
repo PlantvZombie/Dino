@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var jump_force = -400
 var gravity = 1000
+var death = false 
 
 # Called every frame
 func _process(delta):
@@ -31,7 +32,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Obstacles"):
-		velocity = Vector2.ZERO
+		death = true
+		get_tree().paused = true
 		$"Dino Sprite".play("die")
 		await get_tree().create_timer(0.5).timeout   
-		get_tree().reload_current_scene()
+		death = false

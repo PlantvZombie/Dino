@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4h1w2r04o4r3"]
+[gd_scene load_steps=4 format=3 uid="uid://d4h1w2r04o4r3"]
 
+[ext_resource type="Script" path="res://plat.gd" id="1_hajdb"]
 [ext_resource type="Texture2D" uid="uid://c2kjks6nr5shi" path="res://Sprite-0005.png" id="1_mdudj"]
 [ext_resource type="Texture2D" uid="uid://cns1a1ifbt4yo" path="res://Background_1.png" id="2_52ucr"]
 
 [node name="Node2D" type="Area2D"]
+script = ExtResource("1_hajdb")
 
 [node name="Platform" type="Sprite2D" parent="."]
 position = Vector2(-2.43998, -36.5)
