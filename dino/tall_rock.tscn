@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://qqi3cruqigl8"]
+[gd_scene load_steps=3 format=3 uid="uid://igss6viv2ojq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ve3jd"]
 size = Vector2(14, 28)
@@ -8,9 +8,10 @@ size = Vector2(14, 28)
 [node name="Tall Rock" type="Area2D" groups=["Obstacles"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.76837e-07, -14)
 shape = SubResource("RectangleShape2D_ve3jd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, 7.15256e-07)
+position = Vector2(-1.42109e-13, -14)
 scale = Vector2(14, 28)
 texture = SubResource("PlaceholderTexture2D_si4q6")
