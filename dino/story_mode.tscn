@@ -25,9 +25,7 @@ position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_t7n80")
 
-
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
-
 shape = SubResource("RectangleShape2D_t57sy")
 
 [node name="Camera" type="Camera2D" parent="Dino"]
@@ -36,7 +34,6 @@ zoom = Vector2(2, 2)
 [node name="Hitbox Detection" type="Area2D" parent="Dino"]
 
 [node name="HitBox" type="CollisionShape2D" parent="Dino/Hitbox Detection"]
-
 shape = SubResource("RectangleShape2D_8w4im")
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
