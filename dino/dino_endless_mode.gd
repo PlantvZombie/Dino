@@ -60,7 +60,10 @@ func chooseRock(area:int):
 			rock = waRock.instantiate()
 	else:
 		item = randi_range(1, 2)
-		
+		if (item == 1):
+			rock = sRock.instantiate()
+		if (item == 2):
+			rock = tRock.instantiate()
 	rock.position = spawnLoc.position
 	add_child(rock)
 	### AREA TWO ###
@@ -84,6 +87,5 @@ func _on_timer_timeout() -> void:
 		speed_factor -= 2.5
 		level += 1
 		currArea = level % 3
-		plat = cavePlatform.instantiate()
 	$CanvasLayer/Label.text = "Score: %s" % score
 	$CanvasLayer/Level.text = "\nLevel: %s" % level

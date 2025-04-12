@@ -32,6 +32,7 @@ font_size = 75
 font_size = 60
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawnLoc", "endLoc")]
+position = Vector2(0, 23)
 script = ExtResource("1_8w6ik")
 spawnLoc = NodePath("Start")
 endLoc = NodePath("Plat")
@@ -54,7 +55,7 @@ autostart = true
 
 [node name="Static Character" type="CharacterBody2D" parent="."]
 process_mode = 3
-position = Vector2(0, -24)
+position = Vector2(-168, 9)
 script = ExtResource("1_jdl8r")
 
 [node name="Standing" type="CollisionShape2D" parent="Static Character"]
@@ -95,7 +96,7 @@ position = Vector2(0, -24)
 zoom = Vector2(3, 3)
 
 [node name="Start" type="Marker2D" parent="."]
-position = Vector2(900, 5)
+position = Vector2(901, 34)
 
 [node name="Plat" type="Marker2D" parent="."]
 position = Vector2(900, 88)
@@ -103,7 +104,7 @@ position = Vector2(900, 88)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-4, 85.5)
+position = Vector2(0, 110)
 shape = SubResource("RectangleShape2D_oelhj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -130,6 +131,10 @@ size_flags_vertical = 6
 text = "
 Level: 1"
 label_settings = SubResource("LabelSettings_1t57j")
+
+[node name="Node2D" parent="." instance=ExtResource("7_yq3fq")]
+visible = false
+position = Vector2(899, 88)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
