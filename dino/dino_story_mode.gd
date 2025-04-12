@@ -66,3 +66,4 @@ func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 		await get_tree().create_timer(0.5).timeout   
 		self. global_position = Vector2(100, 180)
 		DeathCounter += 1
+		death = false
