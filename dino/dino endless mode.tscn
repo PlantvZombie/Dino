@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://djskmqnl71orc"]
+
+[ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l668m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8sfm"]
+size = Vector2(20, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xmok"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u00c2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Static Character" type="CharacterBody2D" parent="."]
+script = ExtResource("1_jdl8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Static Character"]
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_l668m")
+
+[node name="Standing" type="CollisionShape2D" parent="Static Character"]
+shape = SubResource("RectangleShape2D_5ixp5")
+
+[node name="Down" type="CollisionShape2D" parent="Static Character"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_e8sfm")
+
+[node name="Camera2D" type="Camera2D" parent="Static Character"]
+zoom = Vector2(2, 2)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 25)
+scale = Vector2(10, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_5xmok")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
+position = Vector2(-5.10365e-07, -1.90735e-06)
+scale = Vector2(20, 20)
+mesh = SubResource("BoxMesh_u00c2")
