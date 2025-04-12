@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4h1w2r04o4r3"]
+
+[ext_resource type="Texture2D" uid="uid://c2kjks6nr5shi" path="res://Sprite-0005.png" id="1_mdudj"]
+[ext_resource type="Texture2D" uid="uid://cns1a1ifbt4yo" path="res://Background_1.png" id="2_52ucr"]
+
+[node name="Node2D" type="Area2D"]
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(-2.43998, -36.5)
+scale = Vector2(1.43032, 0.837456)
+texture = ExtResource("1_mdudj")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -710
+position = Vector2(-4, -180)
+scale = Vector2(2, 1.6625)
+texture = ExtResource("2_52ucr")
