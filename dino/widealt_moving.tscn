@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccsuqhg2r6aih"]
+[gd_scene load_steps=3 format=3 uid="uid://dv570ed6yliif"]
 
 [ext_resource type="PackedScene" uid="uid://dde6kbl2sdms" path="res://moving_small_rock.tscn" id="2_dntwx"]
-[ext_resource type="PackedScene" uid="uid://71hepiklf7tx" path="res://moving_wide_rock.tscn" id="3_m6k25"]
+[ext_resource type="PackedScene" path="res://moving_wide_rock.tscn" id="3_m6k25"]
 
 [node name="widealt_move" type="Node2D"]
 
 [node name="moving_small_rock" parent="." instance=ExtResource("2_dntwx")]
 position = Vector2(-28.3333, -1)
+scale = Vector2(1.5, 1.5)
 
 [node name="moving_small_rock2" parent="." instance=ExtResource("2_dntwx")]
 position = Vector2(36.6667, -0.333333)
+scale = Vector2(1.5, 1.5)
 
 [node name="moving_wide_rock" parent="." instance=ExtResource("3_m6k25")]
