@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpwq8o3bq2xrf"]
+[gd_scene load_steps=12 format=3 uid="uid://dpwq8o3bq2xrf"]
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
 [ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
+[ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="2_ray3c"]
 [ext_resource type="Texture2D" uid="uid://dx73h3a0jeglk" path="res://Platform.png" id="3_effst"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
 [ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
@@ -18,7 +19,7 @@ size = Vector2(20, 37.1)
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(100, 180)
+position = Vector2(8200, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
@@ -28,14 +29,18 @@ shape = SubResource("RectangleShape2D_t57sy")
 zoom = Vector2(2, 2)
 
 [node name="Death Counter" type="Label" parent="Dino/Camera"]
+texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 225.0
+offset_left = 255.0
 offset_top = -160.0
-offset_right = 285.0
-offset_bottom = -137.0
+offset_right = 315.0
+offset_bottom = -119.0
 grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_ray3c")
+theme_override_font_sizes/font_size = 30
 
 [node name="Hitbox Detection" type="Area2D" parent="Dino"]
 
@@ -135,6 +140,114 @@ position = Vector2(2872, 177)
 
 [node name="Small Rock8" parent="." instance=ExtResource("2_lr2x0")]
 position = Vector2(3038, 177)
+
+[node name="Wide Rock4" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(3565, 175)
+
+[node name="Small Rock9" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(3834, 177)
+
+[node name="Small Rock10" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(4182, 177)
+
+[node name="Small Rock11" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(4371, 177)
+
+[node name="Tall Rock5" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(4823, 162)
+
+[node name="Wide Rock5" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(4861, 176)
+
+[node name="Small Rock12" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(5116, 177)
+
+[node name="Wide Rock6" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(5152, 176)
+
+[node name="Tall Rock6" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(5189, 163)
+
+[node name="Small Rock13" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(5389, 177)
+
+[node name="Wide Rock7" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(5564, 176)
+
+[node name="Small Rock14" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(5736, 177)
+
+[node name="Tall Rock7" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(5949, 163)
+
+[node name="Wide Rock8" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(6256, 176)
+
+[node name="Small Rock15" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(6528, 177)
+
+[node name="Tall Rock8" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(6555, 162)
+
+[node name="Small Rock16" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(6584, 177)
+
+[node name="Wide Rock9" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(6843, 176)
+
+[node name="Wide Rock10" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(6887, 176)
+
+[node name="Small Rock17" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(7067, 177)
+
+[node name="Small Rock18" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(7235, 177)
+
+[node name="Tall Rock9" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(7428, 162)
+
+[node name="Wide Rock11" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(7631, 176)
+
+[node name="Small Rock19" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(7832, 178)
+
+[node name="Tall Rock10" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(8060, 162)
+
+[node name="Small Rock20" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(8338, 177)
+
+[node name="Small Rock21" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(8362, 177)
+
+[node name="Small Rock22" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(8386, 177)
+
+[node name="Small Rock23" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(8411, 177)
+
+[node name="Wide Rock12" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(8445, 176)
+
+[node name="Tall Rock11" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(8651, 162)
+
+[node name="Small Rock24" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(8825, 177)
+
+[node name="Small Rock25" parent="." instance=ExtResource("2_lr2x0")]
+position = Vector2(9019, 177)
+
+[node name="Wide Rock13" parent="." instance=ExtResource("5_ns34o")]
+position = Vector2(9200, 176)
+
+[node name="Tall Rock12" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(9424, 162)
+
+[node name="Tall Rock13" parent="." instance=ExtResource("3_u58p8")]
+position = Vector2(9648, 162)
 
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
