@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=17 format=3 uid="uid://djskmqnl71orc"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
 [ext_resource type="PackedScene" uid="uid://dde6kbl2sdms" path="res://moving_small_rock.tscn" id="2_8x7yb"]
 [ext_resource type="PackedScene" uid="uid://bgty7vcs3n0i2" path="res://moving_tall_rock.tscn" id="3_d5n5b"]
-[ext_resource type="PackedScene" path="res://moving_wide_rock.tscn" id="4_di6a4"]
-[ext_resource type="PackedScene" path="res://widealt_moving.tscn" id="5_fa4li"]
+[ext_resource type="PackedScene" uid="uid://bqev2imhsvsp" path="res://moving_wide_rock.tscn" id="4_di6a4"]
+[ext_resource type="PackedScene" uid="uid://dv570ed6yliif" path="res://widealt_moving.tscn" id="5_fa4li"]
 [ext_resource type="PackedScene" uid="uid://6wq7p2b77fgp" path="res://animation.tscn" id="5_otrfl"]
-[ext_resource type="PackedScene" path="res://plat.tscn" id="6_uwyk1"]
+[ext_resource type="PackedScene" uid="uid://1511l675euv6" path="res://plat.tscn" id="6_uwyk1"]
+[ext_resource type="PackedScene" uid="uid://d4h1w2r04o4r3" path="res://caveplat.tscn" id="7_yq3fq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixp5"]
 size = Vector2(25, 25)
@@ -31,6 +32,7 @@ font_size = 75
 font_size = 60
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawnLoc", "endLoc")]
+position = Vector2(0, 23)
 script = ExtResource("1_8w6ik")
 spawnLoc = NodePath("Start")
 endLoc = NodePath("Plat")
@@ -40,10 +42,11 @@ tRock = ExtResource("3_d5n5b")
 wRock = ExtResource("4_di6a4")
 waRock = ExtResource("5_fa4li")
 platform = ExtResource("6_uwyk1")
-speed_factor = 1.7
+cavePlatform = ExtResource("7_yq3fq")
+speed_factor = 1.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.075
 autostart = true
 
 [node name="RockTimer" type="Timer" parent="."]
@@ -51,7 +54,8 @@ wait_time = 1.5
 autostart = true
 
 [node name="Static Character" type="CharacterBody2D" parent="."]
-position = Vector2(0, -24)
+process_mode = 3
+position = Vector2(-168, 9)
 script = ExtResource("1_jdl8r")
 
 [node name="Standing" type="CollisionShape2D" parent="Static Character"]
@@ -92,7 +96,7 @@ position = Vector2(0, -24)
 zoom = Vector2(3, 3)
 
 [node name="Start" type="Marker2D" parent="."]
-position = Vector2(900, 5)
+position = Vector2(901, 34)
 
 [node name="Plat" type="Marker2D" parent="."]
 position = Vector2(900, 88)
@@ -100,7 +104,7 @@ position = Vector2(900, 88)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-4, 85.5)
+position = Vector2(0, 110)
 shape = SubResource("RectangleShape2D_oelhj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -127,6 +131,10 @@ size_flags_vertical = 6
 text = "
 Level: 1"
 label_settings = SubResource("LabelSettings_1t57j")
+
+[node name="Node2D" parent="." instance=ExtResource("7_yq3fq")]
+visible = false
+position = Vector2(899, 88)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]

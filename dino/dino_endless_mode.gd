@@ -10,7 +10,7 @@ const SPEED = 300
 @export var wRock:PackedScene
 @export var waRock:PackedScene
 @export var platform:PackedScene
-
+@export var cavePlatform:PackedScene
 var currArea = 1
 var rock
 var plat
@@ -33,9 +33,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	delta *= $/root/Global.speed_factor
 	timer += delta
-	if timer >= 4.785:
-		timer -= 4.785
-		plat = platform.instantiate()
+	if timer >= 4.783:
+		timer -= 4.783
+		if currArea == 1:
+			plat = platform.instantiate()
+		if currArea == 2:
+			plat = cavePlatform.instantiate()
 		plat.position = endLoc.position
 		add_child(plat)
 		#await get_tree().create_timer(4.785).timeout
@@ -47,15 +50,20 @@ func chooseRock(area:int):
 	### AREA ONE ###
 	if (area == 1):
 		item = randi_range(1,numObjArea1)
-	
-	if (item == 1):
-		rock = sRock.instantiate()
-	if (item == 2):
-		rock = tRock.instantiate()
-	if (item == 3):
-		rock = wRock.instantiate()
-	if (item == 4):
-		rock = waRock.instantiate()
+		if (item == 1):
+			rock = sRock.instantiate()
+		if (item == 2):
+			rock = tRock.instantiate()
+		if (item == 3):
+			rock = wRock.instantiate()
+		if (item == 4):
+			rock = waRock.instantiate()
+	else:
+		item = randi_range(1, 2)
+		if (item == 1):
+			rock = sRock.instantiate()
+		if (item == 2):
+			rock = tRock.instantiate()
 	rock.position = spawnLoc.position
 	add_child(rock)
 	### AREA TWO ###
@@ -64,18 +72,18 @@ func chooseRock(area:int):
 func _on_rock_timer_timeout() -> void:
 	randomize()
 	chooseRock(currArea)
-	$RockTimer.wait_time = randf_range(1.0, 2.0)
+	$RockTimer.wait_time = randf_range(0.7, 1.5)
 
 
 func _on_timer_timeout() -> void:
 	score += 1
-	if score < 4000:
+	if score < 2000:
 		$/root/Global.speed_factor += 0.001
 	elif score < 1000:
 		$/root/Global.speed_factor += 0.0015
 	else:
 		$/root/Global.speed_factor += 0.003
-	if score % 1000 == 0:
+	if score % 500 == 0:
 		speed_factor -= 2.5
 		level += 1
 		currArea = level % 3

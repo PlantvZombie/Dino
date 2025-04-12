@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv570ed6yliif"]
 
 [ext_resource type="PackedScene" uid="uid://dde6kbl2sdms" path="res://moving_small_rock.tscn" id="2_dntwx"]
-[ext_resource type="PackedScene" path="res://moving_wide_rock.tscn" id="3_m6k25"]
+[ext_resource type="PackedScene" uid="uid://bqev2imhsvsp" path="res://moving_wide_rock.tscn" id="3_m6k25"]
 
 [node name="widealt_move" type="Node2D"]
 
