@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ve3jd"]
 size = Vector2(14, 24)
 
-[node name="Tall Rock" type="Area2D" groups=["Obstacles"]]
+[node name="Tall Rock" type="StaticBody2D" groups=["Obstacles"]]
 position = Vector2(0, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
