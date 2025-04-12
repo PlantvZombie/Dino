@@ -30,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 			$"Dino Sprite".play("jump")
 			velocity.y -= 175
 		velocity.x = 200
-		if Input.is_action_just_pressed("down") and is_on_floor() and !cooldown:
+		if Input.is_action_pressed("down") and is_on_floor() and !cooldown:
 			dodge.emit()
 			cooldown = true
 	move_and_slide()
@@ -42,15 +42,12 @@ func _input(event: InputEvent) -> void:
 
 func Dodge():
 	dodging = true
-	$"Dino Sprite".set_speed(1)
+	$"Dino Sprite".set_speed(0.5)
 	$"Dino Sprite".play("dodje")
 	if $"Dino Sprite".frame == 0:
 		$"Hitbox Detection".position.y += 2.5
 		$"Hitbox Detection".scale = Vector2(1.5, 0.75)
-	await get_tree().create_timer(0.2).timeout
-	if $"Dino Sprite".frame == 1:
-		$"Hitbox Detection".scale = Vector2(1, 0.75)
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.4).timeout
 	$"Hitbox Detection".scale = Vector2(1, 1)
 	dodging = false
 	$"Hitbox Detection".position.y -= 2.5

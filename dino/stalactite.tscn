@@ -3,10 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://cakfpug8g7ogp" path="res://Stalactite.png" id="1_ja45k"]
 
 [node name="Stalactite" type="Area2D" groups=["Obstacles"]]
+scale = Vector2(1.5, 2)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-9, -22, 9, -22, 0, 25)
+z_index = -1
+polygon = PackedVector2Array(-14.6667, -38, 15.3333, -38, -0.666667, 42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_ja45k")

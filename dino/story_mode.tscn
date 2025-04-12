@@ -1,4 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpwq8o3bq2xrf"]
+
+[gd_scene load_steps=19 format=3 uid="uid://dpwq8o3bq2xrf"]
+
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="PackedScene" uid="uid://6wq7p2b77fgp" path="res://animation.tscn" id="2_4v08e"]
@@ -8,7 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://burc4ik2b8dic" path="res://Platform Wide.png" id="4_gosyo"]
 [ext_resource type="PackedScene" path="res://wide_rock.tscn" id="5_ns34o"]
 [ext_resource type="Texture2D" uid="uid://biq77mnxtv3tf" path="res://Background.png" id="7_j1e08"]
+
+[ext_resource type="Texture2D" uid="uid://dfqlw2gx88red" path="res://Cave Floor.png" id="9_jbyy7"]
 [ext_resource type="Texture2D" uid="uid://cns1a1ifbt4yo" path="res://Background_1.png" id="10_bvgyc"]
+[ext_resource type="Texture2D" uid="uid://b6dgq1sxvn3lr" path="res://Ceiling.png" id="11_o41j5"]
+[ext_resource type="Texture2D" uid="uid://b24yk37563gb7" path="res://Cave_Entrence.png" id="12_5cb5u"]
+[ext_resource type="PackedScene" uid="uid://c8up8votscr1d" path="res://stalactite.tscn" id="13_caoqq"]
+[ext_resource type="PackedScene" uid="uid://btaq6r6kxbcv5" path="res://stalagmite.tscn" id="14_o7ahh"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57sy"]
 
@@ -23,7 +32,7 @@ size = Vector2(20, 11.8)
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(100, 180)
+position = Vector2(9700, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
@@ -33,6 +42,7 @@ shape = SubResource("RectangleShape2D_t57sy")
 zoom = Vector2(2, 2)
 
 [node name="Death Counter" type="Label" parent="Dino/Camera"]
+z_index = 1
 texture_filter = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -54,9 +64,6 @@ shape = SubResource("RectangleShape2D_8w4im")
 [node name="Dino Sprite" parent="Dino" instance=ExtResource("2_4v08e")]
 position = Vector2(-0.750003, 2.75)
 scale = Vector2(0.196875, 0.196875)
-animation = &"dodje"
-frame = 1
-frame_progress = 0.0
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
 position = Vector2(4750, 300)
@@ -253,8 +260,13 @@ position = Vector2(9424, 162)
 [node name="Tall Rock13" parent="." instance=ExtResource("3_u58p8")]
 position = Vector2(9648, 162)
 
+[node name="CaveEntrence" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(9833, 80)
+texture = ExtResource("12_5cb5u")
+
 [node name="Cave Floor" type="StaticBody2D" parent="."]
-position = Vector2(12500, 350)
+position = Vector2(12250, 300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cave Floor"]
 position = Vector2(-7.00049, 75.5)
@@ -268,85 +280,104 @@ position = Vector2(-7.2, 11)
 
 [node name="Cave Background" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(10172, 155)
+position = Vector2(10000, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background2" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(10532, 155)
+position = Vector2(10360, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background3" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(10892, 155)
+position = Vector2(10720, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background4" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(11247, 155)
+position = Vector2(11075, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background5" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(11607, 155)
+position = Vector2(11435, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background6" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(11967, 155)
+position = Vector2(11795, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background7" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(12326, 155)
+position = Vector2(12154, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background8" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(12686, 155)
+position = Vector2(12514, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background9" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(13046, 155)
+position = Vector2(12874, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background10" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(13406, 155)
+position = Vector2(13234, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background11" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(13765, 155)
+position = Vector2(13593, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background12" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(14125, 155)
+position = Vector2(13953, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background13" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(14485, 155)
+position = Vector2(14313, 105)
 texture = ExtResource("10_bvgyc")
 
 [node name="Cave Background14" type="Sprite2D" parent="."]
 z_index = -3
-position = Vector2(14845, 155)
+position = Vector2(14673, 105)
 texture = ExtResource("10_bvgyc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(12500, 615)
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(12300, 565)
 scale = Vector2(1, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
 position = Vector2(-7.2002, -209.5)
 scale = Vector2(250, 5)
 shape = SubResource("RectangleShape2D_tk3jm")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Ceiling"]
 position = Vector2(-7.2, 11)
+
+[node name="Stalactite" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(10145, 88)
+
+[node name="Stalagmite" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(10234, 176)
+
+[node name="Stalagmite2" parent="." instance=ExtResource("14_o7ahh")]
+z_index = -1
+position = Vector2(10459, 176)
+
+[node name="Stalactite2" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(10644, 89)
+
+[node name="Stalactite3" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(10658, 89)
 
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
