@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://qqi3cruqigl8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve3jd"]
-size = Vector2(14, 28)
+[ext_resource type="Texture2D" uid="uid://s3lba3tuqxc3" path="res://Big_Rock.png" id="1_rsed6"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_si4q6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve3jd"]
+size = Vector2(14, 24)
 
 [node name="Tall Rock" type="Area2D" groups=["Obstacles"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ve3jd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.76837e-07, 7.15256e-07)
-scale = Vector2(14, 28)
-texture = SubResource("PlaceholderTexture2D_si4q6")
+position = Vector2(2, -9)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_rsed6")
