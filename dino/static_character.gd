@@ -18,7 +18,7 @@ func _process(delta):
 		if Input.is_action_just_pressed("up") and is_on_floor():
 			velocity.y = jump_force
 			anim.play("jump")
-		else:
+		elif is_on_floor():
 			anim.play("run")
 			
 		velocity.y += gravity * delta
@@ -31,8 +31,9 @@ func _input(event: InputEvent) -> void:
 				velocity.y *= 0.6
 		if Input.is_action_just_pressed("down"):
 			velocity.y += 210
-			if is_on_floor() and !cooldown:
-				dodge.emit()
+			if is_on_floor():
+				anim.stop()
+				anim.play("dodje")
 				cooldown = true
 
 func _unhandled_input(event: InputEvent) -> void:

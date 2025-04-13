@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhbqgg2fm0cea"]
+[gd_scene load_steps=4 format=3 uid="uid://d0iske7pt4akl"]
 
 [ext_resource type="Script" path="res://pause_screen.gd" id="1_jruc6"]
 [ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="1_rumfl"]

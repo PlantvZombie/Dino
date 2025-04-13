@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=25 format=3 uid="uid://djskmqnl71orc"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cq6qxef3xjn85" path="res://cave.tscn" id="10_shmgi"]
 [ext_resource type="PackedScene" uid="uid://ccxyc4bkscfaq" path="res://cave2.tscn" id="11_8fk53"]
 [ext_resource type="Texture2D" uid="uid://bjma0cfho2vsy" path="res://904768-200.png" id="15_3p46f"]
+[ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="15_sijok"]
+[ext_resource type="PackedScene" uid="uid://d0iske7pt4akl" path="res://pause_screen.tscn" id="17_7rw1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c65y"]
 size = Vector2(26, 26)
@@ -26,16 +28,20 @@ size = Vector2(26, 26)
 size = Vector2(722, 173)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6x02j"]
+font = ExtResource("15_sijok")
 font_size = 55
 
 [sub_resource type="LabelSettings" id="LabelSettings_sqghc"]
+font = ExtResource("15_sijok")
 font_size = 41
 
 [sub_resource type="LabelSettings" id="LabelSettings_1t57j"]
+font = ExtResource("15_sijok")
 font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_1mwos"]
-font_size = 71
+font = ExtResource("15_sijok")
+font_size = 61
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("spawnLoc", "endLoc")]
 position = Vector2(0, 23)
@@ -229,6 +235,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.680004, 0.680001)
 texture = ExtResource("15_3p46f")
+
+[node name="Pause Screen" parent="CanvasLayer" instance=ExtResource("17_7rw1v")]
+process_mode = 3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
