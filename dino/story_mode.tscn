@@ -1,23 +1,19 @@
-
 [gd_scene load_steps=19 format=3 uid="uid://dpwq8o3bq2xrf"]
 
-
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
-[ext_resource type="PackedScene" uid="uid://6wq7p2b77fgp" path="res://animation.tscn" id="2_4v08e"]
-[ext_resource type="PackedScene" uid="uid://cv7mfla1o0wvo" path="res://small_rock.tscn" id="2_lr2x0"]
+[ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
+[ext_resource type="PackedScene" uid="uid://5l4i2md6pu2c" path="res://small_rock.tscn" id="2_lr2x0"]
 [ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="2_ray3c"]
-[ext_resource type="PackedScene" uid="uid://igss6viv2ojq" path="res://tall_rock.tscn" id="3_u58p8"]
+[ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
 [ext_resource type="Texture2D" uid="uid://burc4ik2b8dic" path="res://Platform Wide.png" id="4_gosyo"]
-[ext_resource type="PackedScene" path="res://wide_rock.tscn" id="5_ns34o"]
+[ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
 [ext_resource type="Texture2D" uid="uid://biq77mnxtv3tf" path="res://Background.png" id="7_j1e08"]
-
 [ext_resource type="Texture2D" uid="uid://dfqlw2gx88red" path="res://Cave Floor.png" id="9_jbyy7"]
 [ext_resource type="Texture2D" uid="uid://cns1a1ifbt4yo" path="res://Background_1.png" id="10_bvgyc"]
 [ext_resource type="Texture2D" uid="uid://b6dgq1sxvn3lr" path="res://Ceiling.png" id="11_o41j5"]
 [ext_resource type="Texture2D" uid="uid://b24yk37563gb7" path="res://Cave_Entrence.png" id="12_5cb5u"]
 [ext_resource type="PackedScene" uid="uid://c8up8votscr1d" path="res://stalactite.tscn" id="13_caoqq"]
 [ext_resource type="PackedScene" uid="uid://btaq6r6kxbcv5" path="res://stalagmite.tscn" id="14_o7ahh"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57sy"]
 
@@ -32,7 +28,7 @@ size = Vector2(20, 11.8)
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(9700, 180)
+position = Vector2(13000, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
@@ -277,6 +273,7 @@ shape = SubResource("RectangleShape2D_rwhxs")
 z_index = -2
 texture_filter = 1
 position = Vector2(-7.2, 11)
+texture = ExtResource("9_jbyy7")
 
 [node name="Cave Background" type="Sprite2D" parent="."]
 z_index = -3
@@ -359,6 +356,7 @@ shape = SubResource("RectangleShape2D_tk3jm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ceiling"]
 position = Vector2(-7.2, 11)
+texture = ExtResource("11_o41j5")
 
 [node name="Stalactite" parent="." instance=ExtResource("13_caoqq")]
 z_index = -1
@@ -373,11 +371,110 @@ position = Vector2(10459, 176)
 
 [node name="Stalactite2" parent="." instance=ExtResource("13_caoqq")]
 z_index = -1
-position = Vector2(10644, 89)
+position = Vector2(10644, 88)
 
 [node name="Stalactite3" parent="." instance=ExtResource("13_caoqq")]
 z_index = -1
-position = Vector2(10658, 89)
+position = Vector2(10665, 88)
+
+[node name="Stalagmite3" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(10868, 176)
+
+[node name="Stalactite4" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(11038, 88)
+
+[node name="Stalagmite4" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(11161, 176)
+
+[node name="Stalactite5" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(11331, 88)
+
+[node name="Stalactite6" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(11497, 88)
+
+[node name="Stalactite7" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(11598, 88)
+
+[node name="Stalagmite5" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(11786, 176)
+
+[node name="Stalagmite6" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(11974, 176)
+
+[node name="Stalactite8" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(12127, 88)
+
+[node name="Stalagmite7" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(12268, 176)
+
+[node name="Stalagmite8" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(12487, 175)
+
+[node name="Stalactite9" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(12621, 88)
+
+[node name="Stalactite10" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(12651, 88)
+
+[node name="Stalactite11" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(12683, 88)
+
+[node name="Stalagmite9" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(12809, 177)
+
+[node name="Stalactite12" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(12939, 88)
+
+[node name="Stalagmite10" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(13187, 176)
+
+[node name="Stalactite13" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(13358, 88)
+
+[node name="Stalagmite11" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(13476, 177)
+
+[node name="Stalactite14" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(13613, 88)
+
+[node name="Stalagmite12" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(13708, 176)
+
+[node name="Stalactite15" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(13849, 88)
+
+[node name="Stalagmite13" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(13944, 175)
+
+[node name="Stalactite16" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(14086, 88)
+
+[node name="Stalagmite14" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(14188, 176)
+
+[node name="Stalactite17" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(14318, 88)
+
+[node name="Stalagmite15" parent="." instance=ExtResource("14_o7ahh")]
+position = Vector2(14411, 176)
+
+[node name="Stalactite18" parent="." instance=ExtResource("13_caoqq")]
+z_index = -1
+position = Vector2(14562, 88)
 
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
