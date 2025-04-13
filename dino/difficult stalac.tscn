@@ -1,4 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://deugr4kdffv21"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://dhgi62ths8s4w"]
+>>>>>>> parent of 8a460c8 (Revert "goonais")
 
 [ext_resource type="Script" path="res://moveRock.gd" id="1_dsxv0"]
 [ext_resource type="Texture2D" uid="uid://cakfpug8g7ogp" path="res://Stalactite.png" id="2_awj25"]
