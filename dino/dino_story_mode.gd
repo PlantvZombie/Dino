@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 signal dodge
 signal EndingSequence
+signal GameEnd
 var death:bool = false
 var dodging:bool = false
 var cooldown:bool = false
 var cutscene:bool = false
-var first:bool = true
+var first:bool = false
+var ending:bool = false
 var DeathCounter:int = 0
 var MoveDir:int = 1
 var Deathpos:Vector2 = Vector2(100, 180)
@@ -21,10 +23,16 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	$"Camera/Death Counter".text = "Deaths: " + str(DeathCounter)
+	$"/root/Global".DinoPos = global_position
 	if global_position.x >= 15200 and first:
 		cutscene = true
 		EndingSequence.emit()
 		first = false
+	if global_position.x < 100 and !first:
+		cutscene = true
+		velocity = Vector2(0, 0)
+		$"Dino Sprite".play("jump")
+		GameEnd.emit()
 	if !death and !cutscene:
 		if not is_on_floor():
 			$"Dino Sprite".set_speed(1)
@@ -71,6 +79,8 @@ func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 		self. global_position = Deathpos
 		DeathCounter += 1
 		death = false
+	elif area.name == "Asteroid":
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_ending_sequence() -> void:
 	$"Dino Sprite".play("jump")

@@ -3,7 +3,7 @@ extends Node
 var speed_factor := 2.0
 var speed = -100
 
-var RunSpeed:int
+var DinoPos:Vector2
 
 
 func _ready() -> void:
@@ -11,5 +11,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
