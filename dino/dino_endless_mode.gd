@@ -33,7 +33,10 @@ var level = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CanvasLayer/Label.text = "Score: %s" % score
+	$/root/Global.speed_factor = 1.0
+	$CanvasLayer/Panel/HBoxContainer/MarginContainer/Label.text = "Score: " + str(score)
+	var high_score:int = Global.save_data.high_score
+	$CanvasLayer/Panel/HBoxContainer/MarginContainer2/HighScore.text = "High Score: " + str(Global.save_data.high_score)
 	plat = platform.instantiate()
 	plat.position = endLoc.position
 	add_child(plat)
@@ -41,6 +44,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if score > Global.save_data.high_score:
+		Global.save_data.high_score = score
+		Global.save_data.save()
+		$CanvasLayer/Panel/HBoxContainer/MarginContainer2/HighScore.text = "High Score: " + str(Global.save_data.high_score)
 	delta *= $/root/Global.speed_factor
 	timer += delta
 	if timer >= 4.783:
@@ -85,7 +92,7 @@ func _on_rock_timer_timeout() -> void:
 	randomize()
 	chooseRock(currArea)
 	if currArea == 1:
-		$RockTimer.wait_time = randf_range(0.7, 1.5)
+		$RockTimer.wait_time = randf_range(1, 2)
 	if currArea == 0:
 		$RockTimer.wait_time = randf_range(0.5, 1.0)
 
@@ -110,5 +117,5 @@ func _on_timer_timeout() -> void:
 		cave.position = spawnLoc.position
 		add_child(cave)
 		$RockTimer.wait_time += 1
-	$CanvasLayer/Label.text = "Score: %s" % score
-	$CanvasLayer/Level.text = "\nLevel: %s" % level
+	$CanvasLayer/Panel/HBoxContainer/MarginContainer/Label.text = "Score: %s" % score
+	$CanvasLayer/Panel/Level.text = "\nLevel: %s" % level

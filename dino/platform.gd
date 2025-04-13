@@ -14,3 +14,5 @@ func _process(delta: float) -> void:
 	# Check if the node is outside the screen
 	if position.x < -3000 or position.x > viewport_size.x or position.y < -3000 or position.y > viewport_size.y:
 		queue_free()
+	if Global.speed_factor == 0.0:
+		queue_free()

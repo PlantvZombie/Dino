@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://moveRock.gd" id="1_et53n"]
 [ext_resource type="Texture2D" uid="uid://cakfpug8g7ogp" path="res://Stalactite.png" id="1_fmaha"]
 
-[node name="Node2D" type="Area2D"]
+[node name="Node2D" type="Area2D" groups=["Obstacles"]]
 z_index = 1455
 position = Vector2(-1, 79)
 scale = Vector2(3, 3)
