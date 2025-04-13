@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=22 format=3 uid="uid://djskmqnl71orc"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://1511l675euv6" path="res://plat.tscn" id="6_uwyk1"]
 [ext_resource type="PackedScene" uid="uid://wwoag3703lt" path="res://stalacMMove.tscn" id="7_2r5uy"]
 [ext_resource type="PackedScene" uid="uid://d4h1w2r04o4r3" path="res://caveplat.tscn" id="7_yq3fq"]
+[ext_resource type="PackedScene" uid="uid://b5mh4s5v87iey" path="res://difficult stalac.tscn" id="8_1exle"]
+[ext_resource type="PackedScene" path="res://cave_entrance.tscn" id="11_knfhv"]
+[ext_resource type="PackedScene" path="res://cave_entrance2.tscn" id="12_oyqbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixp5"]
 size = Vector2(25, 25)
@@ -45,8 +48,11 @@ wRock = ExtResource("4_di6a4")
 waRock = ExtResource("5_fa4li")
 stalacT = ExtResource("6_cesn6")
 stalacM = ExtResource("7_2r5uy")
+stalacD = ExtResource("8_1exle")
 platform = ExtResource("6_uwyk1")
 cavePlatform = ExtResource("7_yq3fq")
+caveE = ExtResource("11_knfhv")
+caveE2 = ExtResource("12_oyqbs")
 speed_factor = 1.0
 
 [node name="Timer" type="Timer" parent="."]
