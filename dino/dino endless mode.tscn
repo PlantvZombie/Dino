@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://djskmqnl71orc"]
+[gd_scene load_steps=20 format=3 uid="uid://djskmqnl71orc"]
 
 [ext_resource type="Script" path="res://dino_endless_mode.gd" id="1_8w6ik"]
 [ext_resource type="Script" path="res://static_character.gd" id="1_jdl8r"]
@@ -14,12 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bpxos3wy8cnwx" path="res://difficult stalac.tscn" id="8_1exle"]
 [ext_resource type="PackedScene" uid="uid://cq6qxef3xjn85" path="res://cave.tscn" id="10_shmgi"]
 [ext_resource type="PackedScene" uid="uid://ccxyc4bkscfaq" path="res://cave2.tscn" id="11_8fk53"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixp5"]
-size = Vector2(25, 25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8sfm"]
-size = Vector2(25, 13.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c65y"]
 size = Vector2(26, 26)
@@ -67,14 +61,6 @@ autostart = true
 process_mode = 3
 position = Vector2(-168, 9)
 script = ExtResource("1_jdl8r")
-
-[node name="Standing" type="CollisionShape2D" parent="Static Character"]
-position = Vector2(-1.5, -0.5)
-shape = SubResource("RectangleShape2D_5ixp5")
-
-[node name="Down" type="CollisionShape2D" parent="Static Character"]
-position = Vector2(-1, 5.75)
-shape = SubResource("RectangleShape2D_e8sfm")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Static Character"]
 position = Vector2(-1, -1)
@@ -153,3 +139,4 @@ label_settings = SubResource("LabelSettings_1t57j")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RockTimer" to="." method="_on_rock_timer_timeout"]
+[connection signal="area_entered" from="Static Character/Hitbox Detection" to="Static Character" method="_on_hitbox_detection_area_entered"]
