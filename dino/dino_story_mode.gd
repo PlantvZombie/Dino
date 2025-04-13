@@ -52,10 +52,12 @@ func _physics_process(_delta: float) -> void:
 			dodge.emit()
 			cooldown = true
 	move_and_slide()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("up"):
 		if velocity.y < 0:
 			velocity.y *= 0.6
+
 func Dodge():
 	dodging = true
 	$"Dino Sprite".set_speed(0.5)
@@ -69,6 +71,7 @@ func Dodge():
 	$"Hitbox Detection".position.y -= 2.5
 	await get_tree().create_timer(0.1).timeout
 	cooldown = false
+
 func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Obstacles"):
 		death = true
