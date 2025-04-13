@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://gp6t6yy2aa3p"]
+
+[ext_resource type="Texture2D" uid="uid://buhonykqvf87u" path="res://Game_over.png" id="1_mnded"]
+[ext_resource type="Script" path="res://game_over.gd" id="1_qbrt6"]
+[ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="2_lud55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mftk3"]
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbrt6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_mnded")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_right = 43.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_lud55")
+theme_override_font_sizes/font_size = 125
+text = "Game Over"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 531.75
+offset_top = 190.0
+offset_right = 885.75
+offset_bottom = 369.0
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/font = ExtResource("2_lud55")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mftk3")
+text = "Menu"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
