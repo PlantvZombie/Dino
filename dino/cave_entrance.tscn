@@ -1,7 +1,4 @@
 [gd_scene load_steps=3 format=3 uid="uid://v1s0d4qfoipq"]
-=======
-[gd_scene load_steps=3 format=3 uid="uid://bleqk237vbmo4"]
->>>>>>> parent of 8a460c8 (Revert "goonais")
 
 [ext_resource type="Texture2D" uid="uid://b24yk37563gb7" path="res://Cave_Entrence.png" id="1_omc8p"]
 [ext_resource type="Script" path="res://cave_entrance.gd" id="1_wrkvv"]
