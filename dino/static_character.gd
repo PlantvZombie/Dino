@@ -6,7 +6,7 @@ var jump_force = -400
 var gravity = 1000
 var death = false
 var cooldown 
-
+@onready var anim = $"Dino Sprite"
 func _ready() -> void:
 	get_tree().paused = false
 	$"../CanvasLayer/Panel2".visible = false
@@ -17,6 +17,10 @@ func _process(delta):
 	if get_tree().paused == false:
 		if Input.is_action_just_pressed("up") and is_on_floor():
 			velocity.y = jump_force
+			anim.play("jump")
+		else:
+			anim.play("run")
+			
 		velocity.y += gravity * delta
 		move_and_slide()
 
