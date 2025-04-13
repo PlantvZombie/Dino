@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dpwq8o3bq2xrf"]
+[gd_scene load_steps=34 format=3 uid="uid://dpwq8o3bq2xrf"]
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="Script" path="res://story_mode.gd" id="1_k5lg6"]
@@ -8,13 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://dhbqgg2fm0cea" path="res://pause_screen.tscn" id="3_qyl2n"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
 [ext_resource type="Texture2D" uid="uid://burc4ik2b8dic" path="res://Platform Wide.png" id="4_gosyo"]
-[ext_resource type="PackedScene" path="res://wide_rock.tscn" id="5_ns34o"]
+[ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
+[ext_resource type="AudioStream" uid="uid://t36m7072ff05" path="res://Lvl.1 Music.MP3" id="6_3ty22"]
+[ext_resource type="AudioStream" uid="uid://24wctjmku4p3" path="res://Lvl.2 Music.MP3" id="7_40a4i"]
 [ext_resource type="Texture2D" uid="uid://biq77mnxtv3tf" path="res://Background.png" id="7_j1e08"]
+[ext_resource type="AudioStream" uid="uid://ba2u047c7qiqa" path="res://Running Away Music.MP3" id="8_goml3"]
 [ext_resource type="Texture2D" uid="uid://dfqlw2gx88red" path="res://Cave Floor.png" id="9_jbyy7"]
 [ext_resource type="Texture2D" uid="uid://cns1a1ifbt4yo" path="res://Background_1.png" id="10_bvgyc"]
 [ext_resource type="Texture2D" uid="uid://b6dgq1sxvn3lr" path="res://Ceiling.png" id="11_o41j5"]
 [ext_resource type="Texture2D" uid="uid://b24yk37563gb7" path="res://Cave_Entrence.png" id="12_5cb5u"]
-[ext_resource type="PackedScene" uid="uid://c8qy6hcodbyi7" path="res://stalactite.tscn" id="13_caoqq"]
+[ext_resource type="PackedScene" uid="uid://c8up8votscr1d" path="res://stalactite.tscn" id="13_caoqq"]
 [ext_resource type="PackedScene" uid="uid://btaq6r6kxbcv5" path="res://stalagmite.tscn" id="14_o7ahh"]
 [ext_resource type="Texture2D" uid="uid://u3a77vbibkj1" path="res://End_cutscene.png" id="15_5hk1o"]
 [ext_resource type="Script" path="res://asteroid.gd" id="16_x73af"]
@@ -76,7 +79,7 @@ script = ExtResource("1_k5lg6")
 
 [node name="Dino" type="CharacterBody2D" parent="."]
 z_index = 1
-position = Vector2(90, 180)
+position = Vector2(10000, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="Pause Screen" parent="Dino" instance=ExtResource("3_qyl2n")]
@@ -117,6 +120,16 @@ shape = SubResource("RectangleShape2D_8w4im")
 [node name="Dino Sprite" parent="Dino" instance=ExtResource("2_4v08e")]
 position = Vector2(-0.750003, 2.75)
 scale = Vector2(0.196875, 0.196875)
+
+[node name="Level 1 Music" type="AudioStreamPlayer2D" parent="Dino"]
+stream = ExtResource("6_3ty22")
+autoplay = true
+
+[node name="Level 2 Music" type="AudioStreamPlayer2D" parent="Dino"]
+stream = ExtResource("7_40a4i")
+
+[node name="Running Away Music" type="AudioStreamPlayer2D" parent="Dino"]
+stream = ExtResource("8_goml3")
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
 position = Vector2(4750, 300)
