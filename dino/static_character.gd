@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
+signal dodge
+
 var jump_force = -400
 var gravity = 1000
-var death = false 
+var death = false
+var cooldown 
+
+func _ready() -> void:
+	get_tree().paused = false
 
 # Called every frame
 func _process(delta):
@@ -17,23 +23,18 @@ func _input(event: InputEvent) -> void:
 		if velocity.y < 0:
 			velocity.y *= 0.6
 	if Input.is_action_just_pressed("down"):
-		# anim.play(down)
 		velocity.y += 210
-		if (is_on_floor()):
-			$Down.set_deferred("disabled", false)
-			$Standing.set_deferred("disabled", true)
-			print("down")
-	elif Input.is_action_just_released("down") and is_on_floor():
-		# anim.stop(down)
-		$Down.set_deferred("disabled", true)
-		$Standing.set_deferred("disabled", false)
-		print("down-release")
+		if is_on_floor() and !cooldown:
+			dodge.emit()
+			cooldown = true
 
 
 func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Obstacles"):
 		death = true
-		get_tree().paused = true
+		$"Dino Sprite".set_speed(1)
 		$"Dino Sprite".play("die")
-		await get_tree().create_timer(0.5).timeout   
+		get_tree().paused = true
+		await get_tree().create_timer(0.5).timeout
+		get_tree().reload_current_scene()
 		death = false

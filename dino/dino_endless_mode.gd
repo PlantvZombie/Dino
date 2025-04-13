@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 @export var spawnLoc:Marker2D
 @export var endLoc:Marker2D
 const SPEED = 300
@@ -24,7 +26,7 @@ var rock
 var plat
 var countdown:bool = false
 var timer = 0.0
-var score = 499
+var score = 0
 var level = 1
 
 @export var speed_factor := 2.0
