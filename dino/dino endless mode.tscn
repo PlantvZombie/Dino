@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bqev2imhsvsp" path="res://moving_wide_rock.tscn" id="4_di6a4"]
 [ext_resource type="PackedScene" uid="uid://dv570ed6yliif" path="res://widealt_moving.tscn" id="5_fa4li"]
 [ext_resource type="PackedScene" uid="uid://6wq7p2b77fgp" path="res://animation.tscn" id="5_otrfl"]
-[ext_resource type="PackedScene" uid="uid://c3amc1f3lsgxt" path="res://stalacTMove.tscn" id="6_cesn6"]
+[ext_resource type="PackedScene" uid="uid://c8qy6hcodbyi7" path="res://stalactite.tscn" id="6_3bs6w"]
 [ext_resource type="PackedScene" uid="uid://1511l675euv6" path="res://plat.tscn" id="6_uwyk1"]
-[ext_resource type="PackedScene" uid="uid://wwoag3703lt" path="res://stalacMMove.tscn" id="7_2r5uy"]
+[ext_resource type="PackedScene" uid="uid://ok004uef4747" path="res://stalagmite.tscn" id="7_e20tj"]
 [ext_resource type="PackedScene" uid="uid://d4h1w2r04o4r3" path="res://caveplat.tscn" id="7_yq3fq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ixp5"]
@@ -43,8 +43,8 @@ sRock = ExtResource("2_8x7yb")
 tRock = ExtResource("3_d5n5b")
 wRock = ExtResource("4_di6a4")
 waRock = ExtResource("5_fa4li")
-stalacT = ExtResource("6_cesn6")
-stalacM = ExtResource("7_2r5uy")
+stalacT = ExtResource("6_3bs6w")
+stalacM = ExtResource("7_e20tj")
 platform = ExtResource("6_uwyk1")
 cavePlatform = ExtResource("7_yq3fq")
 speed_factor = 1.0
