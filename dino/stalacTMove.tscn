@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3amc1f3lsgxt"]
+[gd_scene load_steps=3 format=3 uid="uid://q0xgom722eyb"]
 
 [ext_resource type="Script" path="res://moveRock.gd" id="1_et53n"]
 [ext_resource type="Texture2D" uid="uid://cakfpug8g7ogp" path="res://Stalactite.png" id="1_fmaha"]

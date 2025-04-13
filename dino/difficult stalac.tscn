@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhgi62ths8s4w"]
+[gd_scene load_steps=4 format=3 uid="uid://bpxos3wy8cnwx"]
 
 [ext_resource type="Script" path="res://moveRock.gd" id="1_dsxv0"]
 [ext_resource type="Texture2D" uid="uid://cakfpug8g7ogp" path="res://Stalactite.png" id="2_awj25"]
 [ext_resource type="Texture2D" uid="uid://buoqvk2mrd3hh" path="res://Stalagmite.png" id="3_ip6bq"]
 
-[node name="Node2D" type="Area2D"]
+[node name="Node2D2" type="Area2D"]
 z_index = 1455
 position = Vector2(-1, 79)
 scale = Vector2(3, 3)

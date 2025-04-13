@@ -7,15 +7,10 @@ var death = false
 # Called every frame
 func _process(delta):
 	# Check for jump
-	if $/root/Global.isInCave == true:
-		if Input.is_action_just_pressed("up") and is_on_floor():
-			gravity *= -1
-			scale.y = -1
-	else:
-		if Input.is_action_just_pressed("up") and is_on_floor():
-			velocity.y = jump_force
-		velocity.y += gravity * delta
-		move_and_slide()
+	if Input.is_action_just_pressed("up") and is_on_floor():
+		velocity.y = jump_force
+	velocity.y += gravity * delta
+	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("up"):

@@ -2,7 +2,6 @@ extends Node
 
 var speed_factor := 2.0
 var speed = -100
-var isInCave = true
 
 var RunSpeed:int
 

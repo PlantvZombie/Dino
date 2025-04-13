@@ -24,7 +24,7 @@ var rock
 var plat
 var countdown:bool = false
 var timer = 0.0
-var score = 0
+var score = 499
 var level = 1
 
 @export var speed_factor := 2.0
@@ -83,9 +83,9 @@ func _on_rock_timer_timeout() -> void:
 	randomize()
 	chooseRock(currArea)
 	if currArea == 1:
-		$RockTimer.wait_time = randf_range(0.2, 0.4)
-	if currArea == 1:
 		$RockTimer.wait_time = randf_range(0.7, 1.5)
+	if currArea == 0:
+		$RockTimer.wait_time = randf_range(0.5, 1.0)
 
 
 func _on_timer_timeout() -> void:
@@ -101,12 +101,12 @@ func _on_timer_timeout() -> void:
 		level += 1
 		currArea = level % 2
 		var cave = caveE.instantiate()
+		if score % 1000 == 0:
+			cave = caveE2.instantiate()
+			cave.position = spawnLoc.position
+			add_child(cave)
 		cave.position = spawnLoc.position
 		add_child(cave)
 		$RockTimer.wait_time += 1
-		if currArea == 2:
-			$/root/Global.isInCave = true
-		else:
-			$/root/Global.isInCave = false
 	$CanvasLayer/Label.text = "Score: %s" % score
 	$CanvasLayer/Level.text = "\nLevel: %s" % level
