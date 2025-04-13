@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpwq8o3bq2xrf"]
+[gd_scene load_steps=29 format=3 uid="uid://dpwq8o3bq2xrf"]
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
@@ -6,14 +6,17 @@
 [ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="2_ray3c"]
 [ext_resource type="PackedScene" uid="uid://qqi3cruqigl8" path="res://tall_rock.tscn" id="3_u58p8"]
 [ext_resource type="Texture2D" uid="uid://burc4ik2b8dic" path="res://Platform Wide.png" id="4_gosyo"]
-[ext_resource type="PackedScene" path="res://wide_rock.tscn" id="5_ns34o"]
+[ext_resource type="PackedScene" uid="uid://bdbxx7fq78aju" path="res://wide_rock.tscn" id="5_ns34o"]
 [ext_resource type="Texture2D" uid="uid://biq77mnxtv3tf" path="res://Background.png" id="7_j1e08"]
 [ext_resource type="Texture2D" uid="uid://dfqlw2gx88red" path="res://Cave Floor.png" id="9_jbyy7"]
 [ext_resource type="Texture2D" uid="uid://cns1a1ifbt4yo" path="res://Background_1.png" id="10_bvgyc"]
 [ext_resource type="Texture2D" uid="uid://b6dgq1sxvn3lr" path="res://Ceiling.png" id="11_o41j5"]
 [ext_resource type="Texture2D" uid="uid://b24yk37563gb7" path="res://Cave_Entrence.png" id="12_5cb5u"]
-[ext_resource type="PackedScene" uid="uid://c8qy6hcodbyi7" path="res://stalactite.tscn" id="13_caoqq"]
+[ext_resource type="PackedScene" uid="uid://c8up8votscr1d" path="res://stalactite.tscn" id="13_caoqq"]
 [ext_resource type="PackedScene" uid="uid://btaq6r6kxbcv5" path="res://stalagmite.tscn" id="14_o7ahh"]
+[ext_resource type="Texture2D" uid="uid://u3a77vbibkj1" path="res://End_cutscene.png" id="15_5hk1o"]
+[ext_resource type="Script" path="res://asteroid.gd" id="16_x73af"]
+[ext_resource type="Texture2D" uid="uid://b2fww25ovn61k" path="res://meteor-Sheet.png" id="17_7jwcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57sy"]
 
@@ -25,18 +28,59 @@ size = Vector2(20, 37.1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk3jm"]
 size = Vector2(20, 11.8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd4j8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wdck"]
+radius = 13.0384
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma440"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0m2r"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o044n"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_paljr"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gua3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma440")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0m2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o044n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_paljr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
 z_index = 1
-position = Vector2(100, 180)
+position = Vector2(15200, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
 shape = SubResource("RectangleShape2D_t57sy")
 
 [node name="Camera" type="Camera2D" parent="Dino"]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.75, 1.75)
 
 [node name="Death Counter" type="Label" parent="Dino/Camera"]
 z_index = 1
@@ -445,10 +489,6 @@ position = Vector2(13358, 88)
 [node name="Stalagmite11" parent="." instance=ExtResource("14_o7ahh")]
 position = Vector2(13476, 177)
 
-[node name="Stalactite14" parent="." instance=ExtResource("13_caoqq")]
-z_index = -1
-position = Vector2(13613, 88)
-
 [node name="Stalagmite12" parent="." instance=ExtResource("14_o7ahh")]
 position = Vector2(13708, 176)
 
@@ -463,9 +503,6 @@ position = Vector2(13944, 175)
 z_index = -1
 position = Vector2(14086, 88)
 
-[node name="Stalagmite14" parent="." instance=ExtResource("14_o7ahh")]
-position = Vector2(14188, 176)
-
 [node name="Stalactite17" parent="." instance=ExtResource("13_caoqq")]
 z_index = -1
 position = Vector2(14318, 88)
@@ -477,5 +514,33 @@ position = Vector2(14411, 176)
 z_index = -1
 position = Vector2(14562, 88)
 
+[node name="EndScene" type="StaticBody2D" parent="."]
+position = Vector2(15283, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndScene"]
+z_index = 1
+position = Vector2(-240, 282)
+scale = Vector2(30, 8)
+shape = SubResource("RectangleShape2D_sd4j8")
+
+[node name="Sprite2D" type="Sprite2D" parent="EndScene"]
+position = Vector2(0, 20)
+scale = Vector2(1, 1.21452)
+texture = ExtResource("15_5hk1o")
+
+[node name="Asteroid" type="Area2D" parent="."]
+position = Vector2(15550, 0)
+script = ExtResource("16_x73af")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid"]
+z_index = 1
+position = Vector2(-10, 10)
+shape = SubResource("CircleShape2D_4wdck")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Asteroid"]
+sprite_frames = SubResource("SpriteFrames_5gua3")
+
+[connection signal="EndingSequence" from="Dino" to="Dino" method="_on_ending_sequence"]
+[connection signal="EndingSequence" from="Dino" to="Asteroid" method="_on_dino_ending_sequence"]
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
