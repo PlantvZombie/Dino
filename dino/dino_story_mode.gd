@@ -1,21 +1,31 @@
 extends CharacterBody2D
 
 signal dodge
+signal EndingSequence
 var death:bool = false
 var dodging:bool = false
 var cooldown:bool = false
+var cutscene:bool = false
+var first:bool = true
 var DeathCounter:int = 0
+var MoveDir:int = 1
+var Deathpos:Vector2 = Vector2(100, 180)
 
 func _ready() -> void:
 	death = false
 	dodging = false
 	cooldown = false
+	cutscene = false
 	$"Dino Sprite".play("jump")
 	DeathCounter = 0
 
 func _physics_process(_delta: float) -> void:
 	$"Camera/Death Counter".text = "Deaths: " + str(DeathCounter)
-	if !death:
+	if global_position.x >= 15200 and first:
+		cutscene = true
+		EndingSequence.emit()
+		first = false
+	if !death and !cutscene:
 		if not is_on_floor():
 			$"Dino Sprite".set_speed(1)
 			$"Dino Sprite".play("jump")
@@ -29,7 +39,7 @@ func _physics_process(_delta: float) -> void:
 			$"Dino Sprite".set_speed(1)
 			$"Dino Sprite".play("jump")
 			velocity.y -= 175
-		velocity.x = 200
+		velocity.x = 200 * MoveDir
 		if Input.is_action_pressed("down") and is_on_floor() and !cooldown:
 			dodge.emit()
 			cooldown = true
@@ -61,6 +71,20 @@ func _on_hitbox_detection_area_entered(area: Area2D) -> void:
 		$"Dino Sprite".set_speed(1)
 		$"Dino Sprite".play("die")
 		await get_tree().create_timer(0.5).timeout   
-		self. global_position = Vector2(100, 180)
+		self. global_position = Deathpos
 		DeathCounter += 1
 		death = false
+
+func _on_ending_sequence() -> void:
+	$"Dino Sprite".play("jump")
+	velocity.y = 0
+	velocity.x = 0
+	MoveDir = -1
+	Deathpos = Vector2 (15200, 180)
+	$"Camera".zoom = Vector2(1.75, 1.75)
+	await get_tree().create_timer(1).timeout
+	$"Dino Sprite".play("die")
+	await get_tree().create_timer(1).timeout
+	$"Dino Sprite".scale.x = -0.197
+	cutscene = false
+	$"Camera".zoom = Vector2(2, 2)
