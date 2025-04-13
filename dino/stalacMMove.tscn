@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://moveRock.gd" id="1_rpy7a"]
 [ext_resource type="Texture2D" uid="uid://buoqvk2mrd3hh" path="res://Stalagmite.png" id="2_ywunc"]
 
-[node name="Node2D2" type="Area2D"]
+[node name="Node2D2" type="Area2D" groups=["Obstacles"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_rpy7a")
 
