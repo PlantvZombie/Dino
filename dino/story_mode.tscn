@@ -73,7 +73,7 @@ animations = [{
 
 [node name="Dino" type="CharacterBody2D" parent="."]
 z_index = 1
-position = Vector2(15200, 180)
+position = Vector2(90, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
@@ -529,6 +529,7 @@ scale = Vector2(1, 1.21452)
 texture = ExtResource("15_5hk1o")
 
 [node name="Asteroid" type="Area2D" parent="."]
+z_index = 1
 position = Vector2(15550, 0)
 script = ExtResource("16_x73af")
 
@@ -542,5 +543,7 @@ sprite_frames = SubResource("SpriteFrames_5gua3")
 
 [connection signal="EndingSequence" from="Dino" to="Dino" method="_on_ending_sequence"]
 [connection signal="EndingSequence" from="Dino" to="Asteroid" method="_on_dino_ending_sequence"]
+[connection signal="GameEnd" from="Dino" to="Asteroid" method="_on_dino_game_end"]
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
+[connection signal="body_entered" from="Asteroid" to="Asteroid" method="_on_body_entered"]
