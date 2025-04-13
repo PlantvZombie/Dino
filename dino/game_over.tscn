@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://gp6t6yy2aa3p"]
+[gd_scene load_steps=6 format=3 uid="uid://gp6t6yy2aa3p"]
 
 [ext_resource type="Texture2D" uid="uid://buhonykqvf87u" path="res://Game_over.png" id="1_mnded"]
 [ext_resource type="Script" path="res://game_over.gd" id="1_qbrt6"]
 [ext_resource type="FontFile" uid="uid://coud4r4dhc538" path="res://Erasaur.otf" id="2_lud55"]
+[ext_resource type="AudioStream" uid="uid://wp7ubyftwecg" path="res://Gameover Music.MP3" id="4_jmx66"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mftk3"]
 
@@ -44,5 +45,9 @@ theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mftk3")
 text = "Menu"
 flat = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jmx66")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

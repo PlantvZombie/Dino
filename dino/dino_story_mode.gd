@@ -53,6 +53,18 @@ func _physics_process(_delta: float) -> void:
 			cooldown = true
 	move_and_slide()
 
+func _process(_delta: float) -> void:
+	if global_position.x < 9900 and first:
+		$"Level 1 Music"._set_playing(true)
+		$"Level 2 Music"._set_playing(false)
+	if global_position.x > 9900 and first:
+		$"Level 1 Music"._set_playing(false)
+		$"Level 2 Music"._set_playing(true)
+	if !first:
+		$"Running Away Music"._set_playing(true)
+		$"Level 1 Music"._set_playing(false)
+		$"Level 2 Music"._set_playing(false)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("up"):
 		if velocity.y < 0:
