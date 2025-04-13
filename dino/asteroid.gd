@@ -16,8 +16,8 @@ func _on_dino_game_end() -> void:
 	global_position = Vector2(300, -50)
 	while !touching:
 		await get_tree().create_timer(0.01).timeout
-		global_position.y = move_toward(global_position.y, $"/root/Global".DinoPos.y, 2.3)
-		global_position.x = move_toward(global_position.x, $"/root/Global".DinoPos.x, 2)
+		global_position.y = move_toward(global_position.y, $"/root/Global".DinoPos.y, 1.15)
+		global_position.x = move_toward(global_position.x, $"/root/Global".DinoPos.x, 1)
 
 
 func _on_body_entered(body: Node2D) -> void:
