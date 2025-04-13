@@ -10,12 +10,15 @@ const SPEED = 300
 @export var wRock:PackedScene
 @export var waRock:PackedScene
 @export_category("Area Two")
-@export var numObjArea2:int = 2
+@export var numObjArea2:int = 3
 @export var stalacT:PackedScene
 @export var stalacM:PackedScene
+@export var stalacD:PackedScene
 @export_category("Platforms")
 @export var platform:PackedScene
 @export var cavePlatform:PackedScene
+@export var caveE:PackedScene
+@export var caveE2:PackedScene
 var currArea = 1
 var rock
 var plat
@@ -42,7 +45,7 @@ func _process(delta: float) -> void:
 		timer -= 4.783
 		if currArea == 1:
 			plat = platform.instantiate()
-		if currArea == 2:
+		if currArea == 0:
 			plat = cavePlatform.instantiate()
 		plat.position = endLoc.position
 		add_child(plat)
@@ -64,10 +67,12 @@ func chooseRock(area:int):
 		if (item == 4):
 			rock = waRock.instantiate()
 	else:
-		item = randi_range(1, 2)
+		item = randi_range(1, numObjArea2)
 		if (item == 1):
 			rock = stalacT.instantiate()
 		if (item == 2):
+			rock = stalacM.instantiate()
+		if (item == 3):
 			rock = stalacM.instantiate()
 	rock.position = spawnLoc.position
 	add_child(rock)
@@ -77,7 +82,10 @@ func chooseRock(area:int):
 func _on_rock_timer_timeout() -> void:
 	randomize()
 	chooseRock(currArea)
-	$RockTimer.wait_time = randf_range(0.7, 1.5)
+	if currArea == 1:
+		$RockTimer.wait_time = randf_range(0.2, 0.4)
+	if currArea == 1:
+		$RockTimer.wait_time = randf_range(0.7, 1.5)
 
 
 func _on_timer_timeout() -> void:
@@ -91,6 +99,14 @@ func _on_timer_timeout() -> void:
 	if score % 500 == 0:
 		speed_factor -= 2.5
 		level += 1
-		currArea = level % 3
+		currArea = level % 2
+		var cave = caveE.instantiate()
+		cave.position = spawnLoc.position
+		add_child(cave)
+		$RockTimer.wait_time += 1
+		if currArea == 2:
+			$/root/Global.isInCave = true
+		else:
+			$/root/Global.isInCave = false
 	$CanvasLayer/Label.text = "Score: %s" % score
 	$CanvasLayer/Level.text = "\nLevel: %s" % level
