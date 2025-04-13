@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpwq8o3bq2xrf"]
+[gd_scene load_steps=29 format=3 uid="uid://dpwq8o3bq2xrf"]
 
 [ext_resource type="Script" path="res://dino_story_mode.gd" id="1_jg5g8"]
 [ext_resource type="PackedScene" uid="uid://cig6akynhq0re" path="res://animation.tscn" id="2_4v08e"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://b24yk37563gb7" path="res://Cave_Entrence.png" id="12_5cb5u"]
 [ext_resource type="PackedScene" uid="uid://c8up8votscr1d" path="res://stalactite.tscn" id="13_caoqq"]
 [ext_resource type="PackedScene" uid="uid://btaq6r6kxbcv5" path="res://stalagmite.tscn" id="14_o7ahh"]
+[ext_resource type="Texture2D" uid="uid://cxjgt002h410g" path="res://End_cutscene.png" id="15_5hk1o"]
+[ext_resource type="Script" path="res://asteroid.gd" id="16_x73af"]
+[ext_resource type="Texture2D" uid="uid://qufch7pbl6j6" path="res://meteor-Sheet.png" id="17_7jwcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t57sy"]
 
@@ -25,10 +28,52 @@ size = Vector2(20, 37.1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tk3jm"]
 size = Vector2(20, 11.8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oigcv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tb3e"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12nyv"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0livg"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klvrv"]
+atlas = ExtResource("17_7jwcq")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbice"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3tb3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12nyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0livg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klvrv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1axi"]
+radius = 13.0384
+
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(13000, 180)
+z_index = 1
+position = Vector2(15200, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
@@ -444,10 +489,6 @@ position = Vector2(13358, 88)
 [node name="Stalagmite11" parent="." instance=ExtResource("14_o7ahh")]
 position = Vector2(13476, 177)
 
-[node name="Stalactite14" parent="." instance=ExtResource("13_caoqq")]
-z_index = -1
-position = Vector2(13613, 88)
-
 [node name="Stalagmite12" parent="." instance=ExtResource("14_o7ahh")]
 position = Vector2(13708, 176)
 
@@ -462,9 +503,6 @@ position = Vector2(13944, 175)
 z_index = -1
 position = Vector2(14086, 88)
 
-[node name="Stalagmite14" parent="." instance=ExtResource("14_o7ahh")]
-position = Vector2(14188, 176)
-
 [node name="Stalactite17" parent="." instance=ExtResource("13_caoqq")]
 z_index = -1
 position = Vector2(14318, 88)
@@ -476,5 +514,33 @@ position = Vector2(14411, 176)
 z_index = -1
 position = Vector2(14562, 88)
 
+[node name="EndArea" type="StaticBody2D" parent="."]
+position = Vector2(15000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
+z_index = 1
+position = Vector2(0, 290)
+scale = Vector2(25.7, 10)
+shape = SubResource("RectangleShape2D_oigcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="EndArea"]
+position = Vector2(284, 11)
+scale = Vector2(1, 1.22483)
+texture = ExtResource("15_5hk1o")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(15550, -20)
+script = ExtResource("16_x73af")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_jbice")
+frame_progress = 0.471594
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-12, 10)
+shape = SubResource("CircleShape2D_k1axi")
+
+[connection signal="EndingSequence" from="Dino" to="Dino" method="_on_ending_sequence"]
+[connection signal="EndingSequence" from="Dino" to="Area2D" method="_on_dino_ending_sequence"]
 [connection signal="dodge" from="Dino" to="Dino" method="Dodge"]
 [connection signal="area_entered" from="Dino/Hitbox Detection" to="Dino" method="_on_hitbox_detection_area_entered"]
