@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf8iutnv88gf1"]
+
+[ext_resource type="Script" path="res://moveRock.gd" id="1_rpy7a"]
+[ext_resource type="Texture2D" uid="uid://buoqvk2mrd3hh" path="res://Stalagmite.png" id="2_ywunc"]
+
+[node name="Node2D2" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_rpy7a")
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.346668, -7.32)
+scale = Vector2(0.365, 0.365)
+polygon = PackedVector2Array(9.33333, 8.66667, -8.66667, 8.66667, -0.666667, -14)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0.346668, -8.65333)
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("2_ywunc")

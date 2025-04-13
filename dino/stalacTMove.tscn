@@ -1,13 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3amc1f3lsgxt"]
+[gd_scene load_steps=3 format=3 uid="uid://q0xgom722eyb"]
 
-[ext_resource type="Texture2D" uid="uid://buoqvk2mrd3hh" path="res://Stalagmite.png" id="1_q5ubr"]
+[ext_resource type="Script" path="res://moveRock.gd" id="1_et53n"]
+[ext_resource type="Texture2D" uid="uid://cakfpug8g7ogp" path="res://Stalactite.png" id="1_fmaha"]
 
 [node name="Node2D" type="Area2D"]
+z_index = 1455
+position = Vector2(-1, 79)
+scale = Vector2(3, 3)
+script = ExtResource("1_et53n")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(9.33333, 8.66667, -8.66667, 8.66667, -0.666667, -14)
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="."]
+z_index = -1
+position = Vector2(1.08, -49.72)
+polygon = PackedVector2Array(-14.6667, -38, 15.3333, -38, -0.666667, 42)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1.33333)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_q5ubr")
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1.08, -49.72)
+texture = ExtResource("1_fmaha")
