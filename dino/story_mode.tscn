@@ -28,7 +28,8 @@ size = Vector2(20, 11.8)
 [node name="Story Mode" type="Node2D"]
 
 [node name="Dino" type="CharacterBody2D" parent="."]
-position = Vector2(13000, 180)
+z_index = 1
+position = Vector2(100, 180)
 script = ExtResource("1_jg5g8")
 
 [node name="FloorCollison" type="CollisionShape2D" parent="Dino"]
