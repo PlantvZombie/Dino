@@ -14,4 +14,4 @@ texture = ExtResource("1_a4odg")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1, -6.66667)
-polygon = PackedVector2Array(9.72, 6.025, 9.475, -1.725, 0.41, -6.995, -10.805, 0.48, -11.085, 6.065)
+polygon = PackedVector2Array(9.72, 6.025, 9.475, -1.725, 0.41, -6.995, -9.22, 0.48, -9.735, 5.94)

@@ -36,6 +36,8 @@ func _ready() -> void:
 	$/root/Global.speed_factor = 1.0
 	$CanvasLayer/Panel/HBoxContainer/MarginContainer/Label.text = "Score: " + str(score)
 	var high_score:int = Global.save_data.high_score
+	Global.save_data.high_score = 0
+	Global.save_data.save()
 	$CanvasLayer/Panel/HBoxContainer/MarginContainer2/HighScore.text = "High Score: " + str(Global.save_data.high_score)
 	plat = platform.instantiate()
 	plat.position = endLoc.position
@@ -46,7 +48,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if score > Global.save_data.high_score:
 		Global.save_data.high_score = score
-		Global.save_data.save()
+		#Global.save_data.save()
 		$CanvasLayer/Panel/HBoxContainer/MarginContainer2/HighScore.text = "High Score: " + str(Global.save_data.high_score)
 	delta *= $/root/Global.speed_factor
 	timer += delta
